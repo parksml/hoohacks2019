@@ -10,6 +10,7 @@ This lives on the web at: [MISSING URL]
 Target environment: python 3.7
 """
 
+
 # Start standard library imports.
 # End standard library imports.
 
@@ -21,14 +22,15 @@ Target environment: python 3.7
 
 
 class CreditCard:
-    def __init__(self, annualFeeFloat: float, aprFloat: float, cashbackPercentFloat: float,
-                 creditLimitInt: int, balanceFloat: float = 0, missedPaymentBool: bool = False) -> None:
+    def __init__(self, annualFeeFloat: float, aprFloat: float, cashbackFloat: float,
+                 creditLimitInt: int, nameStr: str, balanceFloat: float = 0, missedPaymentBool: bool = False) -> None:
         self.annualFeeFloat = annualFeeFloat
         self.aprFloat = aprFloat
         self.balanceFloat = balanceFloat
-        self.cashbackPercentFloat = cashbackPercentFloat
+        self.cashbackFloat = cashbackFloat
         self.creditLimitInt = creditLimitInt
         self.missedPaymentBool = missedPaymentBool
+        self.nameStr = nameStr
 
     def get_missed_payment_bool(self) -> bool:
         """
@@ -55,5 +57,5 @@ class CreditCard:
         """
         Call this last.
         """
-        putOnCardFloat = putOnCardFloat - (putOnCardFloat * self.cashbackPercentFloat)
+        putOnCardFloat = putOnCardFloat - (putOnCardFloat * self.cashbackFloat)
         self.balanceFloat += putOnCardFloat
