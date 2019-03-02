@@ -21,7 +21,7 @@ from flask import Flask, render_template
 # End project imports.
 
 
-FLASK_OBJ = Flask(__name__)
+FLASK_OBJ = Flask(__name__, template_folder='./templates')
 
 
 @FLASK_OBJ.route('/home')
@@ -29,7 +29,7 @@ def home():
     """
     Display the home page.
     """
-    return render_template('templates/home.html')
+    return render_template('home.html')
 
 
 if __name__ == '__main__':
