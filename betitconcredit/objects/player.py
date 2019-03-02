@@ -20,6 +20,8 @@ from typing import List
 
 # Start project imports.
 from betitconcredit.objects.creditcard import CreditCard
+
+
 # End project imports.
 
 
@@ -49,6 +51,26 @@ class Player:
         self.creditCardObjList = list()
         self.devilsDealBool = False
         self.incomeInt = get_random_account_income_int()
-        self.billTotalFloat = self.incomeInt * get_random_bill_percent_float()
+        self.monthlyExpensesFloat = round(self.incomeInt * get_random_bill_percent_float(), 2)
         self.jobBool = True
         self.nameStr = nameStr
+
+    def get_average_credit_card_total_float(self):
+        """
+        """
+        totalBalanceFloat = 0
+        numberOfCardsInt = 0
+        for nowCreditCardObj in self.creditCardObjList:
+            numberOfCardsInt += 1
+            totalBalanceFloat += nowCreditCardObj.balanceFloat
+        return totalBalanceFloat / numberOfCardsInt
+
+    def get_credit_utilization_percent_float(self):
+        """
+        """
+        totalAvalaibleInt = 0
+        totalUsedInt = 0
+        for nowCreditCardObj in self.creditCardObjList:
+            totalAvalaibleInt += nowCreditCardObj.creditLimitInt
+            totalUsedInt += nowCreditCardObj.balanceFloat
+        return totalUsedInt / totalAvalaibleInt * 100
