@@ -133,7 +133,7 @@ utilization : the percent utilization of the overall lines of credit.
 """
 def calc_credit_score(monthsSinceMissedPayment: int, avgBalance: int, numberMonths: int,
     numberInquiriesLastSixMonths: int, numberTradeLines: int, utilization: float) -> int:
-    score = 505
+    score = 340
     score += get_credit_history_points(numberMonths)
     score += get_credit_mix_points(numberTradeLines)
     score += get_inquiries_points(numberInquiriesLastSixMonths)
