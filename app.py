@@ -29,7 +29,7 @@ def home():
     """
     Display the home page.
     """
-    return render_template('./templates/home.html')
+    return render_template('templates/home.html')
 
 
 if __name__ == '__main__':
