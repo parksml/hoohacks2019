@@ -24,7 +24,16 @@ import math
 
 # monthsSinceMissedPayment : number of months since the last missed payment
 def get_payment_history_points(monthsSinceMissedPayment: int) -> int:
-    return 0
+    if monthsSinceMissedPayment == -1 :
+        return 75
+    elif monthsSinceMissedPayment < 6 :
+        return 10
+    elif monthsSinceMissedPayment < 12 :
+        return 15
+    elif monthsSinceMissedPayment < 24 :
+        return 25
+    else :
+        return 55
 
 # avgBalance : average balance of all credit cards the player has
 def get_outstanding_debt_points(avgBalance: int) -> int:
@@ -71,3 +80,4 @@ def calc_credit_score(monthsSinceMissedPayment: int, avgBalance: int, numberMont
     score += get_inquiries_points(numberInquiriesLastSixMonths)
     score += get_outstanding_debt_points(avgBalance)
     score += get_payment_history_points(monthsSinceMissedPayment)
+    return score
