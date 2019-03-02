@@ -12,12 +12,14 @@ Target environment: python 3.7
 
 # Start standard library imports.
 from random import randrange, uniform
+from typing import List
 # End standard library imports.
 
 # Start third party imports.
 # End third party imports.
 
 # Start project imports.
+from betitconcredit.objects.creditcard import CreditCard
 # End project imports.
 
 
@@ -44,7 +46,7 @@ class Player:
         self.accountBalanceFloat = get_random_account_balance_float()
         self.avatarUrlStr = avatarUrlStr
         self.creditScoreInt = 600
-        self.creditCardList = list()
+        self.creditCardList = List[CreditCard]
         self.devilsDealBool = False
         self.incomeInt = get_random_account_income_int()
         self.billTotalFloat = self.incomeInt * get_random_bill_percent_float()
