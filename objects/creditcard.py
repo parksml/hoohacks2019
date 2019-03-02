@@ -22,9 +22,30 @@ Target environment: python 3.7
 
 
 class CreditCard:
-    def __init__(self, annualFeeInt: int = None, aprFloat: float = None, balanceInt: int = None,
-                 creditLimitInt: int = None) -> None:
+    def __init__(self, annualFeeInt: int = None, aprFloat: float = None, balanceFloat: int = None,
+                 creditLimitInt: int = None, missedPaymentBool: bool = False) -> None:
         self.annualFeeInt = annualFeeInt
         self.aprFloat = aprFloat
-        self.balanceInt = balanceInt
+        self.balanceFloat = balanceFloat
         self.creditLimitInt = creditLimitInt
+        self.missedPaymentBool = missedPaymentBool
+
+    def get_missed_payment_bool(self) -> bool:
+        """
+        """
+        missedPaymentBool = self.missedPaymentBool
+        self.missedPaymentBool = False
+        return missedPaymentBool
+
+    def get_minimum_payment_float(self) -> float:
+        """
+        Assuming 6 months is your phase.
+        """
+        return self.balanceFloat * (self.aprFloat / 2 + .05)
+
+    def make_payment(self, paymentFloat) -> None:
+        """
+        """
+        self.balanceFloat -= paymentFloat
+        if self.balanceFloat > 0:
+            self.balanceFloat += self.balanceFloat * self.aprFloat / 2
