@@ -14,7 +14,7 @@ Target environment: python 3.7
 # End standard library imports.
 
 # Start third party imports.
-from flask import Flask
+from flask import Flask, render_template
 # End third party imports.
 
 # Start project imports.
@@ -24,12 +24,12 @@ from flask import Flask
 FLASK_OBJ = Flask(__name__)
 
 
-@FLASK_OBJ.route('templates/home.html')
+@FLASK_OBJ.route('/home')
 def main() -> None:
     """
     The logic of the file.
     """
-    pass
+    return render_template('templates/home.html')
 
 
 if __name__ == '__main__':
