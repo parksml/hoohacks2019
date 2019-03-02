@@ -25,12 +25,12 @@ FLASK_OBJ = Flask(__name__)
 
 
 @FLASK_OBJ.route('/home')
-def home() -> None:
+def home():
     """
     Display the home page.
     """
-    return render_template('templates/home.html')
+    return render_template('./templates/home.html')
 
 
 if __name__ == '__main__':
-    home()
+    FLASK_OBJ.run()
