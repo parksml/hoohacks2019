@@ -45,6 +45,7 @@ class Player:
         self.avatarUrlStr = avatarUrlStr
         self.creditScoreInt = 600
         self.creditCardList = list()
+        self.devilsDealBool = False
         self.incomeInt = get_random_account_income_int()
         self.billTotalFloat = self.incomeInt * get_random_bill_percent_float()
         self.jobBool = True
