@@ -36,7 +36,7 @@ class WebGame:
         self.monthsSinceMissingPaymentInt = -1
         self.inquiresInPathSixMonthsInt = 0
         self.monthsSinceCreditEstablishedInt = 24
-        self.playerObj = Player
+        self.playerObj = Player()
         self.nonCreditCardTradeLinesInt = 0
 
     def make_player_obj(self, avatarUrlStr: str, nameStr: str):
@@ -81,6 +81,16 @@ class WebGame:
         numberInquiresLastSixMonths = self.inquiresInPathSixMonthsInt
         numberTradeLines = self.nonCreditCardTradeLinesInt + len(self.playerObj.creditCardObjList)
         utilization = self.playerObj.get_credit_utilization_percent_float()
-        ficoInt = calc_credit_score()
+        creditScoreInt = calc_credit_score(monthsSinceMissedPayment=monthsSinceMissedPayment, avgBalance=avgBalance,
+                                           numberMonths=numberMonths,
+                                           numberInquiriesLastSixMonths=numberInquiresLastSixMonths,
+                                           numberTradeLines=numberTradeLines, utilization=utilization)
+        self.playerObj.creditScoreInt = creditScoreInt
         self.monthsSinceCreditEstablishedInt += 6
         self.inquiresInPathSixMonthsInt = 0
+        if self.monthsSinceMissingPaymentInt >= 0:
+            self.monthsSinceMissingPaymentInt += 6
+        for nowCreditCard in self.playerObj.creditCardObjList:
+            if nowCreditCard.get_missed_payment_bool() is True:
+                self.monthsSinceMissingPaymentInt = 0
+                break
