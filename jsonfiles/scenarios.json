@@ -32,7 +32,7 @@
             "apr": 0.15,
             "balance": 8000,
             "cashback": "N/A",
-            "creditlimit": "N/A",
+            "creditlimit": 0,
             "missedpayment": 0,
             "name": "Bad Person Hospital Bills",
             "revolving": false
@@ -69,7 +69,7 @@
             "apr": 0.0,
             "balance": 217.15,
             "cashback": "N/A",
-            "creditlimit": "N/A",
+            "creditlimit": 0,
             "missedpayment": 0,
             "name": "You get dinner next time...",
             "revolving": false
@@ -82,7 +82,7 @@
   ],
   "Middle": [
     {
-      "Description": "You just impulse bought a Telsa. Pick how you are financing it.",
+      "Description": "You just impulse bought a Tesla. Pick how you are financing it.",
       "Choices": [
         {
           "FlavorText": "All out of pocket.",
@@ -100,7 +100,7 @@
             "apr": 0.08,
             "balance": 40000,
             "cashback": "N/A",
-            "creditlimit": "N/A",
+            "creditlimit": 0,
             "missedpayment": 0,
             "name": "Car Loan",
             "revolving": false
@@ -116,7 +116,7 @@
             "apr": 0.15,
             "balance": 49000,
             "cashback": "N/A",
-            "creditlimit": "N/A",
+            "creditlimit": 0,
             "missedpayment": 0,
             "name": "Car Loan",
             "revolving": false
@@ -132,7 +132,7 @@
             "apr": 0.2,
             "balance": 50000,
             "cashback": "N/A",
-            "creditlimit": "N/A",
+            "creditlimit": 0,
             "missedpayment": 0,
             "name": "Car Loan",
             "revolving": false
@@ -168,7 +168,7 @@
             "apr": 0.15,
             "balance": 1000,
             "cashback": "N/A",
-            "creditlimit": "N/A",
+            "creditlimit": 0,
             "missedpayment": 0,
             "name": "New Business Loan",
             "revolving": false
@@ -211,7 +211,7 @@
             "apr": 0.15,
             "balance": 1500,
             "cashback": "N/A",
-            "creditlimit": "N/A",
+            "creditlimit": 0,
             "missedpayment": 0,
             "name": "Small Bees-iness Loan",
             "revolving": false
@@ -249,7 +249,7 @@
             "apr": 0.15,
             "balance": 5000,
             "cashback": "N/A",
-            "creditlimit": "N/A",
+            "creditlimit": 0,
             "missedpayment": 0,
             "name": "Cheese World Loan",
             "revolving": false
@@ -285,7 +285,7 @@
             "apr": 0.15,
             "balance": 15000,
             "cashback": "N/A",
-            "creditlimit": "N/A",
+            "creditlimit": 0,
             "missedpayment": 0,
             "name": "Super Power Hospital Bills",
             "revolving": false

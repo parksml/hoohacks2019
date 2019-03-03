@@ -115,6 +115,7 @@ class WebGame:
             if paymentFloat < nowCreditCard.get_minimum_payment_float():
                 nowCreditCard.missedPaymentBool = True
             nowCreditCard.make_payment(paymentFloat=paymentFloat)
+            self.playerObj.accountBalanceFloat -= paymentFloat
             if self.monthsSinceMissingPaymentInt >= 0:
                 self.monthsSinceMissingPaymentInt += 6
             for nowCreditCard in self.playerObj.creditCardObjList:
@@ -146,6 +147,7 @@ class WebGame:
                                                           numberInquiriesLastSixMonths=numberInquiresLastSixMonths,
                                                           numberTradeLines=numberTradeLines, utilization=utilization)
         # End Miller time.
+        self.playerObj.accountBalanceFloat += self.playerObj.incomeInt - self.playerObj.monthlyExpensesFloat 
         self.inquiresInPathSixMonthsInt = 0
         return returnInfoPageDict
 
@@ -163,21 +165,24 @@ class WebGame:
                         self.playerObj.accountBalanceFloat += cashbackFloat
                     else:
                         self.playerObj.accountBalanceFloat += nowScenarioChoiceDict['BalanceDiff']
-                    if len(nowScenarioChoiceDict['account']) > 0 and len(nameStr) > 0:
-                        self.inquiresInPathSixMonthsInt += 1
-                        choiceDict = nowScenarioChoiceDict['account']
-                        nameStr = choiceDict['nameStr']
-                        annualFeeFloat = choiceDict['fee']
-                        aprFloat = choiceDict['apr']
-                        balanceFloat = choiceDict['balance']
-                        cashbackFloat = choiceDict['cashback']
-                        creditLimitInt = int(choiceDict['limit'])
-                        revolvingBool = choiceDict['revolving']
-                        nowCreditCard = CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat,
-                                                   balanceFloat=balanceFloat,
-                                                   cashbackFloat=cashbackFloat, creditLimitInt=creditLimitInt,
-                                                   nameStr=nameStr, revolvingBool=revolvingBool)
-                        self.playerObj.creditCardObjList.append(nowCreditCard)
+                    try:
+                        if len(nowScenarioChoiceDict['account']) > 0:
+                            self.inquiresInPathSixMonthsInt += 1
+                            choiceDict = nowScenarioChoiceDict['account']
+                            nameStr = choiceDict['name']
+                            annualFeeFloat = choiceDict['annualfee']
+                            aprFloat = choiceDict['apr']
+                            balanceFloat = choiceDict['balance']
+                            cashbackFloat = choiceDict['cashback']
+                            creditLimitInt = int(choiceDict['creditlimit'])
+                            revolvingBool = choiceDict['revolving']
+                            nowCreditCard = CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat,
+                                                    balanceFloat=balanceFloat,
+                                                    cashbackFloat=cashbackFloat, creditLimitInt=creditLimitInt,
+                                                    nameStr=nameStr, revolvingBool=revolvingBool)
+                            self.playerObj.creditCardObjList.append(nowCreditCard)
+                    except Exception:
+                        pass
                     return
 
     def json_to_scenario_dict_gen(self):

@@ -15,7 +15,7 @@
                         {% for choice in scenarioDict["Choices"] %}
                         <div class="row">
                             <div class="ml-2">
-                                <input name='choice' value="{{choice.choiceID}}" style="display: none;" />
+                                <input id='chsel' name='choice' value="{{choice.choiceID}}" style="display: none;" />
                                 <input type="radio" name='choiceRadio' id="{{choice.choiceID}}"
                                     value="{{choice.usedcard}}" /><label
                                     for="{{choice.choiceID}}">{{choice.FlavorText}}</label>
@@ -144,6 +144,7 @@
 <script type="text/javascript">
     $('#cardRadios input').click(function () {
         if ($(this).is(':checked'))
+            $("#chsel").val($(this).attr("id"))
             radioValue = $(this).val()
         if (radioValue == 'True') {
             $("#cardTable").css({ display: "block" });
