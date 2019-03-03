@@ -23,6 +23,7 @@ from betitoncredit.objects.webgame import WebGame
 
 
 FLASK_OBJ = Flask(__name__, template_folder='../templates')
+FLASK_OBJ.add_url_rule('/images/<path:filename>', endpoint='images', view_func=FLASK_OBJ.send_static_file)
 WEBGAME_OBJ = WebGame()
 
 
