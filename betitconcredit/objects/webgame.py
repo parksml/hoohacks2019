@@ -43,6 +43,7 @@ class WebGame:
         """
         """
         bogusCreditCardObj = self.make_bogus_credit_card()
+        studentLoadObj = self.make_student_loan_obj()
         self.playerObj = Player(avatarUrlStr=avatarUrlStr, nameStr=nameStr)
         self.playerObj.creditCardObjList.append(bogusCreditCardObj)
 
@@ -52,8 +53,17 @@ class WebGame:
         annualFeeFloat = randrange(500, 1000)
         aprFloat = uniform(.2, .3)
         cashbackFloat = 0.0
-        return CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat, cashbackFloat=cashbackFloat,
-                          creditLimitInt=2000, nameStr='College Credit Card')
+        return CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat, balanceFloat=uniform(900, 1200),
+                          cashbackFloat=cashbackFloat, creditLimitInt=2000, nameStr='Discover Card')
+
+    def make_student_load_obj(self):
+        """
+        """
+        annualFeeFloat = 'N/A'
+        aprFloat = uniform(.05, .15)
+        cashbackFloat = 'N/A'
+        return CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat, balanceFloat=uniform(20000, 80000),
+                          cashbackFloat=cashbackFloat, creditLimitInt='N/A', nameStr='College Loans')
 
     def json_to_credit_card_obj_list(self) -> List[CreditCard]:
         """

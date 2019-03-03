@@ -28,7 +28,7 @@ from betitconcredit.objects.creditcard import CreditCard
 def get_random_account_balance_float() -> float:
     """
     """
-    return uniform(1000, 9000)
+    return round(uniform(1000, 9000), 2)
 
 
 def get_random_account_income_int() -> int:
@@ -61,8 +61,9 @@ class Player:
         totalBalanceFloat = 0
         numberOfCardsInt = 0
         for nowCreditCardObj in self.creditCardObjList:
-            numberOfCardsInt += 1
-            totalBalanceFloat += nowCreditCardObj.balanceFloat
+            if nowCreditCardObj.revolvingBool is True:
+                numberOfCardsInt += 1
+                totalBalanceFloat += nowCreditCardObj.balanceFloat
         return totalBalanceFloat / numberOfCardsInt
 
     def get_credit_utilization_percent_float(self):
@@ -71,6 +72,7 @@ class Player:
         totalAvalaibleInt = 0
         totalUsedInt = 0
         for nowCreditCardObj in self.creditCardObjList:
-            totalAvalaibleInt += nowCreditCardObj.creditLimitInt
-            totalUsedInt += nowCreditCardObj.balanceFloat
+            if nowCreditCardObj.revolvingBool is True:
+                totalAvalaibleInt += nowCreditCardObj.creditLimitInt
+                totalUsedInt += nowCreditCardObj.balanceFloat
         return totalUsedInt / totalAvalaibleInt * 100
