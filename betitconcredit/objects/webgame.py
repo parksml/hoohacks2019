@@ -129,8 +129,8 @@ class WebGame:
         """
         with open(self.scenarioJsonFilePathStr) as inFile:
             scenarioDict = load(inFile)
-        for nowScenarioDictList in scenarioDict.keys():
-            for nowScenarioDict in nowScenarioDictList:
-                randIndexInt = randrange(len(nowScenarioDictList))
-                yield nowScenarioDictList[randIndexInt]
-                del nowScenarioDictList[randIndexInt]
+        for nowScenarioPhaseStr in scenarioDict.keys():
+            scenarioDictList = scenarioDict[nowScenarioPhaseStr]
+            randIndexInt = randrange(len(scenarioDictList))
+            yield scenarioDictList[randIndexInt]
+            del scenarioDictList[randIndexInt]
