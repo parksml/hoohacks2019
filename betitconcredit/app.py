@@ -11,6 +11,7 @@ Target environment: python 3.7
 """
 
 # Start standard library imports.
+from json import load
 # End standard library imports.
 
 # Start third party imports.
@@ -51,11 +52,19 @@ def scenario():
     if request.method == 'GET':
         temp = WEBGAME_OBJ.get_next_scenario_dict()
         return render_template('scenario.html', player=WEBGAME_OBJ.playerObj,
-                               scenarioDict=temp)
+                               scenarioDict=temp, action='scenario')
+    creditCardDictList = request.form['creditCardDictList']['Accounts']
+    WEBGAME_OBJ.scenario_over(creditCardDictList)
+    return render_template('scenario.html', player=WEBGAME_OBJ.playerObj)
+
+
+@FLASK_OBJ.route('/scenario/select', methods=['POST'])
+def select():
+    """
+    """
     choiceIdStr = request.form['choice']
-    creditCardDictDict = request.form['creditCardDictDict']
-    accountBalanceFloat = request.form['balance']
-    WEBGAME_OBJ.scenario_over(creditCardDictDict)
+    WEBGAME_OBJ.update_balance_by_choice_id(choiceIdStr=choiceIdStr)
+    return render_template('scenario.html', player=WEBGAME_OBJ.playerObj, action='month')
 
 
 if __name__ == '__main__':
