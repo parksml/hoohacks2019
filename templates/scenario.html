@@ -1,5 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<form action="/scenario" method="POST">
+<div class="modal" id="myModal" tabindex="-1" role="dialog" style="display: block; padding-right: 17px;" aria-modal="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Life Happens...</h5>
+            </div>
+            <div class="modal-body">
+                <p>{{scenarioDict["Description"]}}</p>
+                {% for choice in scenarioDict["Choices"] %}
+                <div class="row">
+                    <div class="ml-2">
+                        <input type="radio" name='choice' id="{{choice.choiceID}}" value="{{choice.choiceID}}"/><label for="{{choice.choiceID}}">{{choice.FlavorText}}</label> 
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="modal-footer">
+                    <div class="mx-auto">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="jumbotron mx-5 my-5" style="min-height: 50%; min-height: 50vh;">
+        <div class="row">
+            <div class="mx-auto">
+            </div>
+        </div>       
+        <h5>Credit Accounts:</h5>
+        <div class="row">
+            <div class="mx-auto">
+                    <button type="submit" class="btn btn-success">Let's Build Some Credit!</button>
+            </div>
+        </div>
+</div>
+</form>
 {% endblock %}

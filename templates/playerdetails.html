@@ -16,7 +16,7 @@
             <li>Credit Score: {{player.creditScoreInt}}</li>
             <li>Current Balance: ${{player.accountBalanceFloat | round(2)}}</li>
             <li>Income: ${{player.incomeInt}}.00</li>
-            <li>Expenses: ${{player.monthlyExpensesFloat}}</li>
+            <li>Expenses: ${{player.monthlyExpensesFloat | round(2)}}</li>
         </ul> 
         <h5>Credit Accounts:</h5>
         <table class="table table-striped mx-auto">
