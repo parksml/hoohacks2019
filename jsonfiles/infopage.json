@@ -23,19 +23,35 @@
     "InfoPage": "Tipping is customary in restaurants in the United States. Make sure to treat people appropriately regardless of your financial goals.",
     "UpdateBlurb": "Thirty percent?! Wow, you made your waiter happy."
   },
+  "14": {
+    "InfoPage": "Tipping is customary in restaurants in the United States. Make sure to treat people appropriately regardless of your financial goals.",
+    "UpdateBlurb": "You'd better take them somewhere nice for that dinner you owe them..."
+  },
   "20": {
     "InfoPage": "A car is a purchase that can take a while to pay off, and as such can present an opportunity to build consistent credit.",
     "UpdateBlurb": "You bought a Tesla out of pocket?!?! I'm just jealous tbh"
   },
   "21": {
     "InfoPage":  "A car is a purchase that can take a while to pay off, and as such can present an opportunity to build consistent credit.",
-    "UpdateBlurb": "A car loan at a reasonable rate and down payment presents an opportunity to build a good credit history."
+    "UpdateBlurb": "A car loan at a reasonable rate and down payment presents an opportunity to build a good credit history. Make sure you get a loan you can afford though"
+  },
+  "22": {
+    "InfoPage":  "A car is a purchase that can take a while to pay off, and as such can present an opportunity to build consistent credit.",
+    "UpdateBlurb": "A car loan at a reasonable rate and down payment presents an opportunity to build a good credit history. Make sure you get a loan you can afford though"
+  },
+  "23": {
+    "InfoPage":  "A car is a purchase that can take a while to pay off, and as such can present an opportunity to build consistent credit.",
+    "UpdateBlurb": "A car loan at a reasonable rate and down payment presents an opportunity to build a good credit history. Make sure you get a loan you can afford though"
   },
   "30": { 
     "InfoPage": "When considering a business venture, it is important to consider it thoroughly",
     "UpdateBlurb": ""
   },
   "31": { 
+    "InfoPage": "When considering a business venture, it is important to consider it thoroughly",
+    "UpdateBlurb": ""
+  },
+  "32": { 
     "InfoPage": "When considering a business venture, it is important to consider it thoroughly",
     "UpdateBlurb": ""
   },
@@ -48,6 +64,10 @@
     "UpdateBlurb": ""
   },
   "42": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "43": { 
     "InfoPage": "",
     "UpdateBlurb": ""
   },
