@@ -12,124 +12,165 @@
             <form action="/scenario/select" method="POST">
                 <div class="modal-body">
                     <p>{{scenarioDict["Description"]}}</p>
-                    {% for choice in scenarioDict["Choices"] %}
-                    <div class="row">
-                        <div class="ml-2">
-                            <input type="radio" name='choice' id="{{choice.choiceID}}"
-                                value="{{choice.choiceID}}" /><label
-                                for="{{choice.choiceID}}">{{choice.FlavorText}}</label>
+                    <div id="cardRadios">
+                        {% for choice in scenarioDict["Choices"] %}
+                        <div class="row">
+                            <div class="ml-2">
+                                <input type="radio" name='choice' id="{{choice.choiceID}}"
+                                    value="{{choice}}" /><label
+                                    for="{{choice.choiceID}}">{{choice.FlavorText}}</label>
+                            </div>
                         </div>
                     </div>
                     {% endfor %}
-                </div>
-                <div class="modal-footer">
-                    <div class="mx-auto">
-                        <button type="submit" class="btn btn-info btn-lg" data-toggle="modal"
-                            data-target="#myModal">Ok</button>
+                    <div id="cardTable" class="row" style="display: none;">
+                        <table class="table table-striped mx-auto" id="creditCardSelect">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Balance</th>
+                                    <th scope="col">APR</th>
+                                    <th scope="col">Limit</th>
+                                    <th scope="col">Use Card</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for account in player.creditCardObjList %}
+                                {% if account.revolvingBool == true %}                        
+                                <tr>
+                                    <td>{{account.nameStr}}</td>
+                                    <td>${{account.balanceFloat | round(2)}}</td>
+                                    <td>{{(account.aprFloat * 100) | round(2)}}%</td>
+                                    <td>{{account.creditLimitInt}}</td>
+                                    <td><input type="radio" name="cardName" value="{{account.name}}" /></td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
-                </div>
+                    <div class="modal-footer">
+                        <div class="mx-auto">
+                            <button type="submit" class="btn btn-info btn-lg" data-toggle="modal"
+                                data-target="#myModal">Ok</button>
+                        </div>
+                    </div>
             </form>
         </div>
     </div>
 </div>
 {% endif %}
 <form action="/scenario" method="POST">
-{% if action == "month" %}
-<div class="modal fade bd-example-modal-lg" id="payment" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="ml-2">
-                        <h5>Current Account Balance: ${{(player.accountBalanceFloat) | round(2)}}</h5>
+    {% if action == "month" %}
+    <div class="modal fade bd-example-modal-lg" id="payment" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="ml-2">
+                            <h5>Current Account Balance: ${{(player.accountBalanceFloat) | round(2)}}</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <table class="table table-striped mx-auto">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Balance</th>
+                                    <th scope="col">Min Payment</th>
+                                    <th scope="col">Payment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for account in player.creditCardObjList %}
+                                <tr>
+                                    <td>{{account.nameStr}}</td>
+                                    <td>${{account.balanceFloat | round(2)}}</td>
+                                    {% if account.revolvingBool %}
+                                    <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.05)) | round(2) }}</td>
+                                    {% else %}
+                                    <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.01)) | round(2) }}</td>
+                                    {% endif %}
+                                    <td><input name="{{account.nameStr}}" placeholder="amount" value=0 /></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="row">
-                    <table class="table table-striped mx-auto">
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Balance</th>
-                                <th scope="col">Min Payment</th>
-                                <th scope="col">Payment</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for account in player.creditCardObjList %}
-                            <tr>
-                                <td>{{account.nameStr}}</td>
-                                <td>${{account.balanceFloat | round(2)}}</td>
-                                {% if account.revolvingBool %}
-                                <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.05)) | round(2) }}</td>
-                                {% else %}
-                                <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.01)) | round(2) }}</td>
-                                {% endif %}
-                                <td><input name="{{account.nameStr}}" placeholder="amount" value=0 /></td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+    <div class="modal fade" id="moreLoans" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="moreLoans" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+    {% endif %}
+    <div class="jumbotron mx-5 my-5" style="min-height: 50%; min-height: 50vh;">
+        <div class="row">
+            <ul style="list-style-type:none;">
+                <li>Credit Score: {{player.creditScoreInt}}</li>
+                <li>Current Balance: ${{player.accountBalanceFloat | round(2)}}</li>
+                <li>Income: ${{player.incomeInt}}.00</li>
+                <li>Expenses: ${{player.monthlyExpensesFloat | round(2)}}</li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="mx-auto">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#payment">Make a
+                    Payment</button>
             </div>
         </div>
-    </div>
-</div>
-{% endif %}
-<div class="jumbotron mx-5 my-5" style="min-height: 50%; min-height: 50vh;">
-    <div class="row">
-        <ul style="list-style-type:none;">
-            <li>Credit Score: {{player.creditScoreInt}}</li>
-            <li>Current Balance: ${{player.accountBalanceFloat | round(2)}}</li>
-            <li>Income: ${{player.incomeInt}}.00</li>
-            <li>Expenses: ${{player.monthlyExpensesFloat | round(2)}}</li>
-        </ul>
-    </div>
-    <div class="row">
-        <div class="mx-auto">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#payment">Make a
-                Payment</button>
+        <div class="row">
+            <div class="mx-auto">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#moreLoans">Add a credit
+                    line</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto">
+                <button type="submit" class="btn btn-success">Advance six months</button>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="mx-auto">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#moreLoans">Add a credit
-                line</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="mx-auto">
-            <button type="submit" class="btn btn-success">Advance six months</button>
-        </div>
-    </div>
-</div>
 </form>
+{% block javascript %}
+        <script type="text/javascript">
+        $('#cardRadios input').change(function () {
+            
+            radioValue = $("input[name='choice']:checked").val()
+            console.log(radioValue)
+            console.log(radioValue['obj'])
+            if(radioValue.usedcard)
+            {
+                $("#cardTable").css({ display: "block" });
+            }
+        });
+    </script>
+    {% endblock %}
 {% endblock %}
