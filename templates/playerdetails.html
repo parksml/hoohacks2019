@@ -2,55 +2,55 @@
 
 {% block content %}
 <div class="jumbotron mx-5 my-5" style="min-height: 50%; min-height: 50vh;">
-        <div class="row">
-            <div class="mx-auto">
-                <h2>{{player.avatarUrlStr}}</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="mx-auto">
-                <h2>{{player.nameStr}}</h2>
-            </div>
-        </div>
-        <ul style="list-style-type:none;">
-            <li>Credit Score: {{player.creditScoreInt}}</li>
-            <li>Current Balance: ${{player.accountBalanceFloat | round(2)}}</li>
-            <li>Income: ${{player.incomeInt}}.00</li>
-            <li>Expenses: ${{player.monthlyExpensesFloat | round(2)}}</li>
-        </ul> 
-        <h5>Credit Accounts:</h5>
-        <table class="table table-striped mx-auto">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Balance</th>
-                    <th scope="col">APR</th>
-                    <th scope="col">Min Payment (6 months)</th>
-                    <th scope="col">Limit</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for account in player.creditCardObjList %}
-                <tr>
-                    <td>{{account.nameStr}}</td>
-                    <td>${{account.balanceFloat | round(2)}}</td>
-                    <td>{{ (account.aprFloat * 100) | round(2)}}%</td>
-                    {% if account.revolvingBool %}
-                    <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.05)) | round(2) }}</td>
-                    {% else %}
-                    <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.01)) | round(2) }}</td>
-                    {% endif %}
-                    <td>${{ account.creditLimitInt }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <div class="row">
-            <div class="mx-auto">
-                <form action="/scenario" method="GET">
-                    <button type="submit" class="btn btn-success">Let's Build Some Credit!</button>
-                </form>
-            </div>
+    <div class="row">
+        <div class="mx-auto">
+            <h2>{{player.avatarUrlStr}}</h2>
         </div>
     </div>
+    <div class="row">
+        <div class="mx-auto">
+            <h2>{{player.nameStr}}</h2>
+        </div>
+    </div>
+    <ul style="list-style-type:none;">
+        <li>Credit Score: {{player.creditScoreInt}}</li>
+        <li>Current Balance: ${{player.accountBalanceFloat | round(2)}}</li>
+        <li>Income: ${{player.incomeInt}}.00</li>
+        <li>Expenses: ${{player.monthlyExpensesFloat | round(2)}}</li>
+    </ul>
+    <h5>Credit Accounts:</h5>
+    <table class="table table-striped mx-auto">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Balance</th>
+                <th scope="col">APR</th>
+                <th scope="col">Min Payment (6 months)</th>
+                <th scope="col">Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for account in player.creditCardObjList %}
+            <tr>
+                <td>{{account.nameStr}}</td>
+                <td>${{account.balanceFloat | round(2)}}</td>
+                <td>{{ (account.aprFloat * 100) | round(2)}}%</td>
+                {% if account.revolvingBool %}
+                <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.05)) | round(2) }}</td>
+                {% else %}
+                <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.01)) | round(2) }}</td>
+                {% endif %}
+                <td>${{ account.creditLimitInt }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="mx-auto">
+            <form action="/scenario" method="GET">
+                <button type="submit" class="btn btn-success">Let's Build Some Credit!</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
