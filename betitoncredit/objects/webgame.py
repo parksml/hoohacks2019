@@ -44,6 +44,7 @@ class WebGame:
         self.monthsSinceCreditEstablishedInt = 24
         self.nextScenarioDictGen = None
         # self.playerObj = Player()
+        self.tempbutt = None
         self.playerObj = None
         self.scenarioJsonFilePathStr = scenarioJsonFilePathStr
 
