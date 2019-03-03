@@ -62,7 +62,9 @@ def scenario():
 def info():
     """
     """
-    return render_template('scenario.html', player=WEBGAME_OBJ.playerObj, action='scenario', scenarioDict=WEBGAME_OBJ.get_next_scenario_dict())
+    return render_template('scenario.html', player=WEBGAME_OBJ.playerObj, action='scenario',
+                           scenarioDict=WEBGAME_OBJ.get_next_scenario_dict())
+
 
 @FLASK_OBJ.route('/scenario/select', methods=['POST'])
 def select():

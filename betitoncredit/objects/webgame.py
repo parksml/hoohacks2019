@@ -117,7 +117,6 @@ class WebGame:
             for nowCreditCard in self.playerObj.creditCardObjList:
                 if nowCreditCard.get_missed_payment_bool() is True:
                     self.monthsSinceMissingPaymentInt = 0
-            break
         with open(self.infoPageJsonFilePathStr) as inFile:
             infoPageDict = load(inFile)
         returnInfoPageDict = infoPageDict[self.choiceIdStr]
