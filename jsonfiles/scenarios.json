@@ -8,12 +8,14 @@
                 {
                     "FlavorText": "That sounds like a great idea! Free money from a chump!",
                     "choiceID": "00",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": 6666.66
                 },
                 {
                     "FlavorText": "No thanks...",
                     "choiceID": "01",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": 0
                 }
@@ -26,15 +28,16 @@
                 {
                     "FlavorText": "$0 - 0%",
                     "choiceID": "10",
+                    "usedcard" : false,
                     "account": 
                     {
-                        "annualfee": 0,
-                        "apr": 0,
-                        "balance": 0,
-                        "cashback": 0,
-                        "creditlimit": 0,
+                        "annualfee": "N/A",
+                        "apr": 0.15,
+                        "balance": 8000,
+                        "cashback": "N/A",
+                        "creditlimit": "N/A",
                         "missedpayment": 0,
-                        "name": 0,
+                        "name": "Bad Person Hospital Bills",
                         "revolving": 0
                     },
                     "BalanceDiff": -273.15
@@ -42,20 +45,40 @@
                 {
                     "FlavorText": "$40.97 - 15%",
                     "choiceID": "11",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": -314.12
                 },
                 {
                     "FlavorText": "$54.63 - 20%",
                     "choiceID": "12",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": -327.78
                 },
                 {
                     "FlavorText": "$81.94 - 30%",
                     "choiceID": "13",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": -355.1
+                },
+                {
+                    "FlavorText": "I forgot my wallet, so...",
+                    "choiceID": "14",
+                    "usedcard" : false,
+                    "account": 
+                    {
+                        "annualfee": "N/A",
+                        "apr": 0.0,
+                        "balance": 217.15,
+                        "cashback": "N/A",
+                        "creditlimit": "N/A",
+                        "missedpayment": 0,
+                        "name": "You get dinner next time...",
+                        "revolving": 0
+                    },
+                    "BalanceDiff": 0
                 }
             ]
         }
@@ -69,12 +92,31 @@
                 {
                     "FlavorText": "All out of pocket.",
                     "choiceID": "20",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": -50000
                 },
                 {
-                    "FlavorText": "Get a car loan $49,000 principal, $1000 down, APR 15%.",
+                    "FlavorText": "Get a car loan $40,000 principal, $10,000 down, APR 8%.",
                     "choiceID": "21",
+                    "usedcard" : false,
+                    "account": 
+                    {
+                        "annualfee": "N/A",
+                        "apr": 0.08,
+                        "balance": 40000,
+                        "cashback": "N/A",
+                        "creditlimit": "N/A",
+                        "missedpayment": 0,
+                        "name": "Car Loan",
+                        "revolving": 0
+                    },
+                    "BalanceDiff": -10000
+                },
+                {
+                    "FlavorText": "Get a car loan $49,000 principal, $1000 down, APR 15%.",
+                    "choiceID": "22",
+                    "usedcard" : false,
                     "account": 
                     {
                         "annualfee": "N/A",
@@ -87,6 +129,23 @@
                         "revolving": 0
                     },
                     "BalanceDiff": -1000
+                },
+                {
+                    "FlavorText": "Get a car loan $50,000 principal, $0 down, APR 20%.",
+                    "choiceID": "23",
+                    "usedcard" : false,
+                    "account": 
+                    {
+                        "annualfee": "N/A",
+                        "apr": 0.2,
+                        "balance": 50000,
+                        "cashback": "N/A",
+                        "creditlimit": "N/A",
+                        "missedpayment": 0,
+                        "name": "Car Loan",
+                        "revolving": 0
+                    },
+                    "BalanceDiff": 0
                 }
             ]
         },
@@ -95,16 +154,35 @@
             "Choices": 
             [
                 {
-                    "FlavorText": "$5,000 seems like a perfectly reasonable amount to start a new business!",
+                    "FlavorText": "$1,000 seems like a perfectly reasonable amount to start a new business!",
                     "choiceID": "30",
+                    "usedcard" : false,
+                    "account": {},
+                    "BalanceDiff": -1000
+                },
+                {
+                    "FlavorText": "Real entrepeneurs are commited, namely $5,000 committed",
+                    "choiceID": "31",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": -5000
                 },
                 {
-                    "FlavorText": "Real entrepeneurs are commited, namely $10,000 committed",
-                    "choiceID": "31",
-                    "account": {},
-                    "BalanceDiff": -10000
+                    "FlavorText": "I can't afford to start a business right now, can you spot me until I make some money?",
+                    "choiceID": "32",
+                    "usedcard" : false,
+                    "account": 
+                    {
+                        "annualfee": "N/A",
+                        "apr": 0.15,
+                        "balance": 1000,
+                        "cashback": "N/A",
+                        "creditlimit": "N/A",
+                        "missedpayment": 0,
+                        "name": "New Business Loan",
+                        "revolving": 0
+                    },
+                    "BalanceDiff": 0
                 }
             ]
         },
@@ -115,20 +193,40 @@
                 {
                     "FlavorText": "5 Hives. This is a hobby after all.",
                     "choiceID": "40",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": -1500
                 },
                 {
                     "FlavorText": "10 Hives. You enjoy bees and honey.",
                     "choiceID": "41",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": -3000
                 },
                 {
                     "FlavorText": "30 Hives. You have your priorities in order.",
                     "choiceID": "42",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": -8000
+                },
+                {
+                    "FlavorText": "I need a small loan to get this beekeeping business off the ground...",
+                    "choiceID": "10",
+                    "usedcard" : false,
+                    "account": 
+                    {
+                        "annualfee": "N/A",
+                        "apr": 0.15,
+                        "balance": 1500,
+                        "cashback": "N/A",
+                        "creditlimit": "N/A",
+                        "missedpayment": 0,
+                        "name": "Small Bees-iness Loan",
+                        "revolving": 0
+                    },
+                    "BalanceDiff": 0
                 }
             ]
         }
@@ -141,18 +239,21 @@
                 {
                     "FlavorText": "Pay out of pocket",
                     "choiceID": "50",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": -5000
                 },
                 {
                     "FlavorText": "Put it on your credit cards",
                     "choiceID": "51",
+                    "usedcard" : true,
                     "account": {},
                     "BalanceDiff": 0
                 },
                 {
                     "FlavorText": "Take out a personal loan",
                     "choiceID": "52",
+                    "usedcard" : false,
                     "account":
                     {
                         "annualfee": "N/A",
@@ -175,18 +276,21 @@
                 {
                     "FlavorText": "Pay out of pocket",
                     "choiceID": "60",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": -15000
                 },
                 {
                     "FlavorText": "Put it on your credit cards",
                     "choiceID": "61",
+                    "usedcard" : true,
                     "account": {},
                     "BalanceDiff": 0
                 },
                 {
                     "FlavorText": "Take out a personal loan",
                     "choiceID": "62",
+                    "usedcard" : false,
                     "account": 
                     {
                         "annualfee": "N/A",
@@ -210,6 +314,7 @@
                 {
                     "FlavorText": "",
                     "choiceID": "70",
+                    "usedcard" : false,
                     "account": {},
                     "BalanceDiff": 0
                 }
