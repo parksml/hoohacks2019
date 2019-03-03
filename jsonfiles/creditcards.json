@@ -1,0 +1,23 @@
+[
+  {
+    "annualFeeFloat": 0.0,
+    "aprFloat": 0.2,
+    "cashbackFloat": 0.015,
+    "creditLimitInt": 4000,
+    "nameStr": "Wise Owl"
+  },
+  {
+    "annualFeeFloat": 100,
+    "aprFloat": 0.25,
+    "cashbackFloat": 0.03,
+    "creditLimitInt": 8000,
+    "nameStr": "Cashback King"
+  },
+  {
+    "annualFeeFloat": 0.0,
+    "aprFloat": 0.13,
+    "cashbackFloat": 0.0,
+    "creditLimitInt": 2000,
+    "nameStr": "Low APR, No Fee"
+  }
+]

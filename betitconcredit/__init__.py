@@ -10,27 +10,23 @@ This lives on the web at: [MISSING URL]
 Target environment: python 3.7
 """
 
+
 # Start standard library imports.
 # End standard library imports.
 
 # Start third party imports.
-from flask import Flask, render_template
 # End third party imports.
 
 # Start project imports.
 # End project imports.
 
 
-FLASK_OBJ = Flask(__name__, template_folder='./templates')
-
-
-@FLASK_OBJ.route('/home')
-def home():
+def main() -> None:
     """
-    Display the home page.
+    The logic of the file.
     """
-    return render_template('home.html')
+    pass
 
 
 if __name__ == '__main__':
-    FLASK_OBJ.run()
+    main()
