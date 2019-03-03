@@ -49,7 +49,8 @@ def scenario():
     """
     """
     if request.method == 'GET':
-        return render_template('scenario.html', scenarioDict=WEBGAME_OBJ.get_next_scenario_dict())
+        return render_template('scenario.html', player=WEBGAME_OBJ.playerObj,
+                               scenarioDict=WEBGAME_OBJ.get_next_scenario_dict())
 
 
 if __name__ == '__main__':
