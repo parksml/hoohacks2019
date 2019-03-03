@@ -26,18 +26,32 @@ from betitconcredit.objects.player import Player
 # End project imports.
 
 
-CREDIT_CARD_JSON_FILE_PATH_STR = './jsonfiles/creditcards.json'
+CREDIT_CARD_JSON_FILE_PATH_STR = '../jsonfiles/creditcards.json'
+SCENARIO_JSON_FILE_PATH_STR = '../jsonfiles/scenarios.json'
 
 
 class WebGame:
-    def __init__(self, creditCardJsonFilePathStr: str = CREDIT_CARD_JSON_FILE_PATH_STR) -> None:
+    def __init__(self, creditCardJsonFilePathStr: str = CREDIT_CARD_JSON_FILE_PATH_STR,
+                 scenarioJsonFilePathStr: str = SCENARIO_JSON_FILE_PATH_STR) -> None:
         self.creditCardJsonFilePathStr = creditCardJsonFilePathStr
         self.monthsSinceStartInt = 0
         self.monthsSinceMissingPaymentInt = -1
         self.inquiresInPathSixMonthsInt = 0
         self.monthsSinceCreditEstablishedInt = 24
+        self.nextScenarioDictGen = None
         # self.playerObj = Player()
         self.playerObj = None
+        self.scenarioJsonFilePathStr = scenarioJsonFilePathStr
+
+    def get_next_scenario_dict(self):
+        """
+        """
+        if self.nextScenarioDictGen is None:
+            self.nextScenarioDictGen = self.json_to_scenario_dict_gen()
+        try:
+            return next(self.nextScenarioDictGen)
+        except StopIteration:
+            return dict()
 
     def make_player_obj(self, avatarUrlStr: str, nameStr: str):
         """
@@ -83,25 +97,40 @@ class WebGame:
             creditCardObjList.append(creditCardObj)
         return creditCardObjList
 
-    def next_scenario(self):
+    # def next_scenario(self):
+    #     """
+    #     """
+    #     # Miller time.
+    #     monthsSinceMissedPayment = self.monthsSinceMissingPaymentInt
+    #     avgBalance = self.playerObj.get_average_credit_card_total_float()
+    #     numberMonths = self.monthsSinceCreditEstablishedInt
+    #     numberInquiresLastSixMonths = self.inquiresInPathSixMonthsInt
+    #     numberTradeLines = len(self.playerObj.creditCardObjList)
+    #     utilization = self.playerObj.get_credit_utilization_percent_float()
+    #     creditScoreInt = calc_credit_score(monthsSinceMissedPayment=monthsSinceMissedPayment, avgBalance=avgBalance,
+    #                                        numberMonths=numberMonths,
+    #                                        numberInquiriesLastSixMonths=numberInquiresLastSixMonths,
+    #                                        numberTradeLines=numberTradeLines, utilization=utilization)
+    #     self.playerObj.creditScoreInt = creditScoreInt
+    #     # End Miller time.
+    #     self.monthsSinceCreditEstablishedInt += 6
+    #     self.inquiresInPathSixMonthsInt = 0
+    #     if self.monthsSinceMissingPaymentInt >= 0:
+    #         self.monthsSinceMissingPaymentInt += 6
+    #     for nowCreditCard in self.playerObj.creditCardObjList:
+    #         if nowCreditCard.get_missed_payment_bool() is True:
+    #             self.monthsSinceMissingPaymentInt = 0
+    #             break
+    #     for nowCreditCard in self.playerObj.creditCardObjList:
+    #         nowCreditCard.make_payment(paymentFloat=)
+
+    def json_to_scenario_dict_gen(self):
         """
         """
-        monthsSinceMissedPayment = self.monthsSinceMissingPaymentInt
-        avgBalance = self.playerObj.get_average_credit_card_total_float()
-        numberMonths = self.monthsSinceCreditEstablishedInt
-        numberInquiresLastSixMonths = self.inquiresInPathSixMonthsInt
-        numberTradeLines = len(self.playerObj.creditCardObjList)
-        utilization = self.playerObj.get_credit_utilization_percent_float()
-        creditScoreInt = calc_credit_score(monthsSinceMissedPayment=monthsSinceMissedPayment, avgBalance=avgBalance,
-                                           numberMonths=numberMonths,
-                                           numberInquiriesLastSixMonths=numberInquiresLastSixMonths,
-                                           numberTradeLines=numberTradeLines, utilization=utilization)
-        self.playerObj.creditScoreInt = creditScoreInt
-        self.monthsSinceCreditEstablishedInt += 6
-        self.inquiresInPathSixMonthsInt = 0
-        if self.monthsSinceMissingPaymentInt >= 0:
-            self.monthsSinceMissingPaymentInt += 6
-        for nowCreditCard in self.playerObj.creditCardObjList:
-            if nowCreditCard.get_missed_payment_bool() is True:
-                self.monthsSinceMissingPaymentInt = 0
-                break
+        with open(self.scenarioJsonFilePathStr) as inFile:
+            scenarioDict = load(inFile)
+        for nowScenarioDictList in scenarioDict.keys():
+            for nowScenarioDict in nowScenarioDictList:
+                randIndexInt = randrange(len(nowScenarioDictList))
+                yield nowScenarioDict[randIndexInt]
+                del nowScenarioDictList[randIndexInt]

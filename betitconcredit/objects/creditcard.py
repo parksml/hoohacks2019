@@ -48,7 +48,7 @@ class CreditCard:
         if self.revolvingBool is True:
             return self.balanceFloat * (self.aprFloat / 2 + .05)
         else:
-            return self.balanceFloat * (self.aprFloat / 2 + .01)
+            return self.balanceFloat * (self.aprFloat / 2 + .02)
 
     def make_payment(self, paymentFloat: float) -> None:
         """

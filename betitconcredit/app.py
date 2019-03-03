@@ -33,15 +33,23 @@ def home():
     """
     return render_template('home.html')
 
-@FLASK_OBJ.route('/set', methods=['POST','GET'])
+
+@FLASK_OBJ.route('/set', methods=['POST', 'GET'])
 def set_name_str_and_avatar_url_str():
     if request.method == 'GET':
         return render_template('Avatar.html')
-
     nameStr = request.form['name']
     avatarUrlStr = request.form['avatar']
     WEBGAME_OBJ.make_player_obj(avatarUrlStr=avatarUrlStr, nameStr=nameStr)
     return render_template('playerdetails.html', player=WEBGAME_OBJ.playerObj)
+
+
+@FLASK_OBJ.route('/scenario', methods=['POST', 'GET'])
+def scenario():
+    """
+    """
+    if request.method == 'GET':
+        return render_template('scenario.html', scenarioDict=WEBGAME_OBJ.get_next_scenario_dict())
 
 
 if __name__ == '__main__':
