@@ -1,0 +1,125 @@
+{
+    "Beginning":
+    [
+        {
+            "Description": "BLAH",
+            "InfoPage":"Vague Economics Stuff",
+            "Choices":
+            [
+                {
+                    "FlavorText": "choice 1",
+                    "IncomeMod": 1,
+                    "CreditMod": 1,
+                    "BalanceMod": 1
+                },
+                {                    
+                    "FlavorText": "choice 2",
+                    "IncomeMod": 2,
+                    "CreditMod": 2,
+                    "BalanceMod": 2
+                }
+            ]
+        },
+        {
+            "Description": "BLAH",
+            "InfoPage":"Vague Economics Stuff",
+            "Choices":
+            [
+                {
+                    "FlavorText": "choice 1",
+                    "IncomeMod": 1,
+                    "CreditMod": 1,
+                    "BalanceMod": 1
+                },
+                {                    
+                    "FlavorText": "choice 2",
+                    "IncomeMod": 2,
+                    "CreditMod": 2,
+                    "BalanceMod": 2
+                }
+            ]
+        }
+    ],
+    "Middle":
+    [
+        {
+            "Description": "BLAH",
+            "InfoPage":"Vague Economics Stuff",
+            "Choices":
+            [
+                {
+                    "FlavorText": "choice 1",
+                    "IncomeMod": 1,
+                    "CreditMod": 1,
+                    "BalanceMod": 1
+                },
+                {                    
+                    "FlavorText": "choice 2",
+                    "IncomeMod": 2,
+                    "CreditMod": 2,
+                    "BalanceMod": 2
+                }
+            ]
+        },
+        {
+            "Description": "BLAH",
+            "InfoPage":"Vague Economics Stuff",
+            "Choices":
+            [
+                {
+                    "FlavorText": "choice 1",
+                    "IncomeMod": 1,
+                    "CreditMod": 1,
+                    "BalanceMod": 1
+                },
+                {                    
+                    "FlavorText": "choice 2",
+                    "IncomeMod": 2,
+                    "CreditMod": 2,
+                    "BalanceMod": 2
+                }
+            ]
+        }
+    ],
+    "End":    
+    [
+        {
+            "Description": "BLAH",
+            "InfoPage":"Vague Economics Stuff",
+            "Choices":
+            [
+                {
+                    "FlavorText": "choice 1",
+                    "IncomeMod": 1,
+                    "CreditMod": 1,
+                    "BalanceMod": 1
+                },
+                {                    
+                    "FlavorText": "choice 2",
+                    "IncomeMod": 2,
+                    "CreditMod": 2,
+                    "BalanceMod": 2
+                }
+            ]
+        },
+        {
+            "Description": "BLAH",
+            "InfoPage":"Vague Economics Stuff",
+            "Choices":
+            [
+                {
+                    "FlavorText": "choice 1",
+                    "IncomeMod": 1,
+                    "CreditMod": 1,
+                    "BalanceMod": 1
+                },
+                {                    
+                    "FlavorText": "choice 2",
+                    "IncomeMod": 2,
+                    "CreditMod": 2,
+                    "BalanceMod": 2
+                }
+            ]
+        }
+    ]
+}
