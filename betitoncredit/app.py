@@ -53,10 +53,15 @@ def scenario():
         return render_template('scenario.html', player=WEBGAME_OBJ.playerObj,
                                scenarioDict=temp, action='scenario')
     creditCardFormDict = request.form
-    WEBGAME_OBJ.scenario_over(creditCardFormDict)
-    return render_template('scenario.html', player=WEBGAME_OBJ.playerObj,
-                           scenarioDict=WEBGAME_OBJ.get_next_scenario_dict(), action='scenario')
+    infoDict = WEBGAME_OBJ.scenario_over(creditCardFormDict)
+    return render_template('playerdetails.html', player=WEBGAME_OBJ.playerObj, info=infoDict, action='info')
 
+
+@FLASK_OBJ.route('/info', methods=['GET'])
+def info():
+    """
+    """
+    return render_template('scenario.html', player=WEBGAME_OBJ.playerObj, action='scenario', scenarioDict=WEBGAME_OBJ.get_next_scenario_dict())
 
 @FLASK_OBJ.route('/scenario/select', methods=['POST'])
 def select():
