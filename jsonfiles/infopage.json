@@ -1,18 +1,35 @@
 {
-  "0": {
+  "00": {
     "InfoPage": "Having extra capital can be used to help keep your credit utilization within optimal levels. (1% - 10%)",
     "UpdateBlurb": "Sure does sound like a great idea! Free money now and no consequences.... right?"
   },
-  "1": {
+  "01": {
     "InfoPage": "Having extra capital can be used to help keep your credit utilization within optimal levels. (1% - 10%)",
     "UpdateBlurb": "Seemed kinda odd, best not sign things you don't fully understand."
   },
-  "2": {
+  "10": {
     "InfoPage": "Tipping is customary in restaurants in the United States. Make sure to treat people appropriately regardless of your financial goals.",
     "UpdateBlurb": "On your way out, you are stopped by the wait staff, taken out by the dumpsters and beaten up. You end up in the hospital with a text message informing you that you are now single and your bill is totalling $8,000."
   },
-  "3": {
+  "11": {
     "InfoPage": "Tipping is customary in restaurants in the United States. Make sure to treat people appropriately regardless of your financial goals.",
-    "UpdateBlurb": "On your way out, you are stopped by the wait staff, taken out by the dumpsters and beaten up. You end up in the hospital with a text message informing you that you are now single and your bill is totalling $8,000."
-  }
+    "UpdateBlurb": "Fifteen percent is pretty good."
+  },
+  "12": {
+    "InfoPage": "Tipping is customary in restaurants in the United States. Make sure to treat people appropriately regardless of your financial goals.",
+    "UpdateBlurb": "Twenty percent, must have been a good waiter."
+  },
+  "13": {
+    "InfoPage": "Tipping is customary in restaurants in the United States. Make sure to treat people appropriately regardless of your financial goals.",
+    "UpdateBlurb": "Thirty percent?! Wow, you made your waiter happy."
+  },
+  "20": {
+    "InfoPage": "Buying a car is a major financial decision. It is important to make a choice of both what car and how you pay for it by taking into account your current financial status.",
+    "UpdateBlurb": "Thirty percent?! Wow, you made your waiter happy."
+  },
+  "21": {
+    "InfoPage": "Going on trips with old friends is great! Just make sure to properly ",
+    "UpdateBlurb": "Thirty percent?! Wow, you made your waiter happy."
+  },
+  "InfoPage": "Trips require careful financial planning before undertaking"
 }

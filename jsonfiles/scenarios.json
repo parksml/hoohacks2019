@@ -1,88 +1,82 @@
 {
   "Beginning": [
     {
-      "Description": "An odd man wearing a black suit approaches you and offers you $6666.66 in exchange for your mortal soul. Do you sign the contract? He seems nice enough.",
+      "Description": "An odd man wearing a black suit approaches you and offers you $6666.66 in exchange for your mortal soul. Do you sign his contract? He seems nice enough.",
       "Choices": [
         {
           "FlavorText": "That sounds like a great idea! Free money from a chump!",
-          "choiceID": "0",
-          "IncomeMod": 0,
-          "BalanceMod": 6666.66
+          "choiceID": "00",
+          "BalanceDiff": 6666.66
         },
         {
           "FlavorText": "No thanks...",
-          "choiceID": "1",
-          "IncomeMod": 0,
-          "BalanceMod": 0
+          "choiceID": "01",
+          "BalanceDiff": 0
         }
       ]
     },
     {
-      "Description": "You and boo are out for a night on the town. The $273.15 bill for your fancy restaurant shows up. How much do you tip?",
+      "Description": "You and your boo are out for a night on the town. The $273.15 bill for your fancy restaurant shows up. How much do you tip?",
       "Choices": [
         {
           "FlavorText": "$0 - 0%",
-          "choiceID": "2",
-          "IncomeMod": 0,
-          "BalanceMod": -273.15
+          "choiceID": "10",
+          "BalanceDiff": -273.15
         },
         {
           "FlavorText": "$40.97 - 15%",
-          "choiceID": "3",
+          "choiceID": "11",
+          "BalanceDiff": -314.12
+        },
+        {
+          "FlavorText": "$54.63 - 20%",
+          "choiceID": "12",
           "IncomeMod": 0,
-          "BalanceMod": -314.12
+          "BalanceDiff": -327.78
         },
         {
           "FlavorText": "$81.94 - 30%",
-          "choiceID": "4",
-          "IncomeMod": 0,
-          "BalanceMod": -355.1
+          "choiceID": "13",
+          "BalanceDiff": -355.1
         }
       ]
     }
   ],
   "Middle": [
     {
-      "Description": "You need a car. Pick a car and how you're gonna pay for it.",
-      "InfoPage": "Buying a car is a major financial decision. It is important to make a choice of both what car and how you pay for it by taking into account your current financial status.",
+      "Description": "You just impulse bought a Telsa. Pick how you are financing it.",
       "Choices": [
         {
-          "FlavorText": "Tesla, cash",
-          "choiceID": "5",
-          "IncomeMod": 0,
-          "BalanceMod": 50000
+          "FlavorText": "All out of pocket.",
+          "choiceID": "20",
+          "BalanceDiff": -50000
         },
         {
-          "FlavorText": "Tesla, loan",
-          "choiceID": "6",
-          "IncomeMod": -6000,
-          "BalanceMod": -1000
+          "FlavorText": "Get a car loan $49,000 principal, $1000 down, APR 15%.",
+          "choiceID": "21",
+          "BalanceDiff": -1000
         }
       ]
     }
   ],
   "End": [
     {
-      "Description": "Chester the Cheetah has invited you to Cheese World! How do you want to attend?",
-      "InfoPage": "Trips require careful financial planning before undertaking",
+      "Description": "Your friend, Chester Cheetah, has invited you to Cheese World on the moon! How are you going to finance your trip?",
       "Choices": [
         {
           "FlavorText": "Pay out of pocket",
-          "choiceID": "7",
-          "IncomeMod": 0,
-          "BalanceMod": -5000
+          "choiceID": "30",
+          "BalanceDiff": -5000
         },
         {
           "FlavorText": "Put it on your credit cards",
-          "choiceID": "8",
-          "IncomeMod": 0,
-          "BalanceMod": 0
+          "choiceID": "31",
+          "BalanceDiff": 0
         },
         {
           "FlavorText": "Take out a personal loan",
-          "choiceID": "9",
-          "IncomeMod": 0,
-          "BalanceMod": 0
+          "choiceID": "32",
+          "BalanceDiff": 0
         }
       ]
     },
