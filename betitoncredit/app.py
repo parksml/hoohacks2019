@@ -76,7 +76,8 @@ def select():
     except Exception:
         nameStr = str()
     WEBGAME_OBJ.update_balance_by_choice_id(choiceIdStr=choiceIdStr, nameStr=nameStr)
-    return render_template('scenario.html', scenarioDict=WEBGAME_OBJ.get_next_scenario_dict(), player=WEBGAME_OBJ.playerObj, action='month')
+    return render_template('scenario.html', scenarioDict=WEBGAME_OBJ.get_next_scenario_dict(),
+                           player=WEBGAME_OBJ.playerObj, action='month')
 
 
 if __name__ == '__main__':
