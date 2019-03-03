@@ -37,7 +37,7 @@
                             </thead>
                             <tbody>
                                 {% for account in player.creditCardObjList %}
-                                {% if account.revolvingBool == 'True' %}
+                                {% if account.revolvingBool == True %}
                                 <tr>
                                     <td>{{account.nameStr}}</td>
                                     <td>${{account.balanceFloat | round(2)}}</td>
