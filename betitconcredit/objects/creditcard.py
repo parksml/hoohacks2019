@@ -45,7 +45,10 @@ class CreditCard:
         """
         Assuming 6 months is your phase.
         """
-        return round(self.balanceFloat * (self.aprFloat / 2 + .05), 2)
+        if self.revolvingBool is True:
+            return self.balanceFloat * (self.aprFloat / 2 + .05)
+        else:
+            return self.balanceFloat * (self.aprFloat / 2 + .01)
 
     def make_payment(self, paymentFloat: float) -> None:
         """
@@ -53,11 +56,11 @@ class CreditCard:
         """
         self.balanceFloat -= paymentFloat
         if self.balanceFloat > 0:
-            self.balanceFloat += round(self.balanceFloat * self.aprFloat / 2, 2)
+            self.balanceFloat += self.balanceFloat * self.aprFloat / 2
 
     def put_on_card(self, putOnCardFloat: float) -> None:
         """
         Call this last.
         """
-        putOnCardFloat = putOnCardFloat - round(putOnCardFloat * self.cashbackFloat, 2)
+        putOnCardFloat = putOnCardFloat - putOnCardFloat * self.cashbackFloat
         self.balanceFloat += putOnCardFloat

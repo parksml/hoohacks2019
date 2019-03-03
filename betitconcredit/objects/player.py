@@ -51,7 +51,7 @@ class Player:
         self.creditCardObjList = list()
         self.devilsDealBool = False
         self.incomeInt = get_random_account_income_int()
-        self.monthlyExpensesFloat = round(self.incomeInt * get_random_bill_percent_float(), 2)
+        self.monthlyExpensesFloat = self.incomeInt * get_random_bill_percent_float()
         self.jobBool = True
         self.nameStr = nameStr
 
