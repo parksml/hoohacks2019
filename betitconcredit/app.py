@@ -52,6 +52,10 @@ def scenario():
         temp = WEBGAME_OBJ.get_next_scenario_dict()
         return render_template('scenario.html', player=WEBGAME_OBJ.playerObj,
                                scenarioDict=temp)
+    choiceIdStr = request.form['choice']
+    creditCardDictDict = request.form['creditCardDictDict']
+    accountBalanceFloat = request.form['balance']
+    WEBGAME_OBJ.scenario_over(creditCardDictDict)
 
 
 if __name__ == '__main__':
