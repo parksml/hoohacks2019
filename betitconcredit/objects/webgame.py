@@ -180,10 +180,10 @@ class WebGame:
         for nowScenarioDict in self.json_to_scenario_dict_gen():
             for nowScenarioChoiceDict in nowScenarioDict['Choices']:
                 if nowScenarioChoiceDict['choiceID'] == choiceIdStr:
-                    self.playerObj.balanceFloat += nowScenarioChoiceDict['BalanceDiff']
-                    if len(nowScenarioChoiceDict['Accounts']) > 0:
+                    self.playerObj.accountBalanceFloat += nowScenarioChoiceDict['BalanceDiff']
+                    if len(nowScenarioChoiceDict['account']) > 0:
                         self.inquiresInPathSixMonthsInt += 1
-                        choiceDict = nowScenarioChoiceDict['Accounts']
+                        choiceDict = nowScenarioChoiceDict['account']
                         nameStr = choiceDict['nameStr']
                         annualFeeFloat = choiceDict['fee']
                         aprFloat = choiceDict['apr']
