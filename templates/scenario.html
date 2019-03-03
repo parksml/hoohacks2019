@@ -57,6 +57,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </form>
         </div>
     </div>
@@ -163,12 +164,10 @@
 </form>
 {% block javascript %}
 <script type="text/javascript">
-    $('#cardRadios input').change(function () {
-
-        radioValue = $("input[name='choice']:checked").val()
-        console.log(radioValue)
-        console.log(radioValue)
-        if (radioValue == true) {
+    $('#cardRadios input').click(function () {
+        if($(this).is(':checked'))
+        radioValue = $(this).val()
+        if (radioValue == 'True') {
             $("#cardTable").css({ display: "block" });
         }
         else {
