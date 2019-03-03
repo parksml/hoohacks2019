@@ -20,9 +20,9 @@ from typing import List
 # End third party imports.
 
 # Start project imports.
-from betitconcredit.fico import calc_credit_score
-from betitconcredit.objects.creditcard import CreditCard
-from betitconcredit.objects.player import Player
+from betitoncredit.fico import calc_credit_score
+from betitoncredit.objects.creditcard import CreditCard
+from betitoncredit.objects.player import Player
 # End project imports.
 
 
@@ -106,35 +106,11 @@ class WebGame:
         """
         self.monthsSinceCreditEstablishedInt += 6
         for nowCreditCardNameStr in creditCardFormDict:
-            if len(creditCardFormDict[nowCreditCardNameStr]) > 0:
-                annualFeeFloat = creditCardFormDict[nowCreditCardNameStr]['fee']
-                aprFloat = creditCardFormDict[nowCreditCardNameStr]['apr']
-                balanceFloat = creditCardFormDict[nowCreditCardNameStr]['balance']
-                cashbackFloat = creditCardFormDict[nowCreditCardNameStr]['cashback']
-                creditLimitInt = creditCardFormDict[nowCreditCardNameStr]['limit']
-                revolvingBool = creditCardFormDict[nowCreditCardNameStr]['revolving']
-                paymentFloat = creditCardFormDict[nowCreditCardNameStr]['paymentmade']
-                putOnCardFloat = creditCardFormDict[nowCreditCardNameStr]['newexpenses']
             nowCreditCard = self.playerObj.get_credit_card_by_name_str(nowCreditCardNameStr)
-            if nowCreditCard is None:
-                self.inquiresInPathSixMonthsInt += 1
-                nowCreditCard = CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat,
-                                           balanceFloat=balanceFloat,
-                                           cashbackFloat=cashbackFloat, creditLimitInt=creditLimitInt,
-                                           nameStr=nowCreditCardNameStr, revolvingBool=revolvingBool)
-                self.playerObj.creditCardObjList.append(nowCreditCard)
-            else:
-                nowCreditCard.annualFeeFloat = annualFeeFloat
-                nowCreditCard.aprFloat = aprFloat
-                nowCreditCard.balanceFloat = balanceFloat
-                nowCreditCard.cashbackFloat = cashbackFloat
-                nowCreditCard.creditLimit = creditLimitInt
-                nowCreditCard.revolvingBool = revolvingBool
+            paymentFloat = float(creditCardFormDict[nowCreditCardNameStr])
             if paymentFloat < nowCreditCard.get_minimum_payment_float():
                 nowCreditCard.missedPaymentBool = True
             nowCreditCard.make_payment(paymentFloat=paymentFloat)
-            cashbackFloat = nowCreditCard.put_on_card(putOnCardFloat=putOnCardFloat)
-            self.playerObj.accountBalanceFloat += cashbackFloat
             if self.monthsSinceMissingPaymentInt >= 0:
                 self.monthsSinceMissingPaymentInt += 6
             for nowCreditCard in self.playerObj.creditCardObjList:
@@ -161,11 +137,11 @@ class WebGame:
         numberInquiresLastSixMonths = self.inquiresInPathSixMonthsInt
         numberTradeLines = len(self.playerObj.creditCardObjList)
         utilization = self.playerObj.get_credit_utilization_percent_float()
-        creditScoreInt = calc_credit_score(monthsSinceMissedPayment=monthsSinceMissedPayment, avgBalance=avgBalance,
-                                           numberMonths=numberMonths,
-                                           numberInquiriesLastSixMonths=numberInquiresLastSixMonths,
-                                           numberTradeLines=numberTradeLines, utilization=utilization)
-        self.playerObj.creditScoreInt = creditScoreInt
+        self.playerObj.creditScoreIn = calc_credit_score(monthsSinceMissedPayment=monthsSinceMissedPayment,
+                                                         avgBalance=avgBalance,
+                                                         numberMonths=numberMonths,
+                                                         numberInquiriesLastSixMonths=numberInquiresLastSixMonths,
+                                                         numberTradeLines=numberTradeLines, utilization=utilization)
         # End Miller time.
         self.inquiresInPathSixMonthsInt = 0
         return returnInfoPageDict
@@ -184,7 +160,7 @@ class WebGame:
                         self.playerObj.accountBalanceFloat += cashbackFloat
                     else:
                         self.playerObj.accountBalanceFloat += nowScenarioChoiceDict['BalanceDiff']
-                    if len(nowScenarioChoiceDict['account']) > 0:
+                    if len(nowScenarioChoiceDict['account']) > 0 and len(nameStr) > 0:
                         self.inquiresInPathSixMonthsInt += 1
                         choiceDict = nowScenarioChoiceDict['account']
                         nameStr = choiceDict['nameStr']
@@ -192,7 +168,7 @@ class WebGame:
                         aprFloat = choiceDict['apr']
                         balanceFloat = choiceDict['balance']
                         cashbackFloat = choiceDict['cashback']
-                        creditLimitInt = choiceDict['limit']
+                        creditLimitInt = int(choiceDict['limit'])
                         revolvingBool = choiceDict['revolving']
                         nowCreditCard = CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat,
                                                    balanceFloat=balanceFloat,

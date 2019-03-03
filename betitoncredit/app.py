@@ -18,7 +18,7 @@ from flask import Flask, render_template, request
 # End third party imports.
 
 # Start project imports.
-from betitconcredit.objects.webgame import WebGame
+from betitoncredit.objects.webgame import WebGame
 # End project imports.
 
 
@@ -62,7 +62,10 @@ def select():
     """
     """
     choiceIdStr = request.form['choice']
-    nameStr = request.form['name']
+    try:
+        nameStr = request.form['cardName']
+    except Exception:
+        nameStr = str()
     WEBGAME_OBJ.update_balance_by_choice_id(choiceIdStr=choiceIdStr, nameStr=nameStr)
     return render_template('scenario.html', player=WEBGAME_OBJ.playerObj, action='month')
 

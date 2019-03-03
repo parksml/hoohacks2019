@@ -19,7 +19,7 @@ from typing import List
 # End third party imports.
 
 # Start project imports.
-from betitconcredit.objects.creditcard import CreditCard
+from betitoncredit.objects.creditcard import CreditCard
 
 
 # End project imports.
