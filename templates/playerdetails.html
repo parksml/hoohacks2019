@@ -25,7 +25,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Balance</th>
                     <th scope="col">APR</th>
-                    <th scope="col">Minimum Payment</th>
+                    <th scope="col">Min Payment (6 months)</th>
                     <th scope="col">Limit</th>
                 </tr>
             </thead>
@@ -33,13 +33,24 @@
                 {% for account in player.creditCardObjList %}
                 <tr>
                     <td>{{account.nameStr}}</td>
-                    <td>${{account.balanceFloat}}</td>
+                    <td>${{account.balanceFloat | round(2)}}</td>
                     <td>{{ (account.aprFloat * 100) | round(2)}}%</td>
-                    <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.05))|round(2) }}</td>
-                    <td>${{account.creditLimitInt}}</td>
+                    {% if account.revolvingBool %}
+                    <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.05)) | round(2) }}</td>
+                    {% else %}
+                    <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.01)) | round(2) }}</td>
+                    {% endif %}
+                    <td>${{ account.creditLimitInt }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <div class="row">
+            <div class="mx-auto">
+                <form action="/scenario" method="GET">
+                    <button type="submit" class="btn btn-success">Let's Build Some Credit!</button>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}
