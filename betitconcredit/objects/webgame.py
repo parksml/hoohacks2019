@@ -132,5 +132,5 @@ class WebGame:
         for nowScenarioDictList in scenarioDict.keys():
             for nowScenarioDict in nowScenarioDictList:
                 randIndexInt = randrange(len(nowScenarioDictList))
-                yield nowScenarioDict[randIndexInt]
+                yield nowScenarioDictList[randIndexInt]
                 del nowScenarioDictList[randIndexInt]
