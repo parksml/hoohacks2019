@@ -2,40 +2,46 @@
     "Beginning":
     [
         {
-            "Description": "BLAH",
-            "InfoPage":"Vague Economics Stuff",
+            "Description": "A man approaches you, and offers you $6666.66 in exchange for your mortal soul. What do you do?",
+            "InfoPage":"Accepting money from strangers without understanding the full ramifications can be risky. Make sure you understand financial contracts before agreeing to them.",
             "Choices":
             [
                 {
-                    "FlavorText": "choice 1",
-                    "IncomeMod": 1,
-                    "CreditMod": 1,
-                    "BalanceMod": 1
+                    "FlavorText": "That sounds like a great idea!",
+                    "choiceID": 0,
+                    "IncomeMod": 0,
+                    "BalanceMod": 6666.66
                 },
                 {                    
-                    "FlavorText": "choice 2",
-                    "IncomeMod": 2,
-                    "CreditMod": 2,
-                    "BalanceMod": 2
+                    "FlavorText": "No thanks...",
+                    "choiceID": 1,
+                    "IncomeMod": 0,
+                    "BalanceMod": 0
                 }
             ]
         },
         {
-            "Description": "BLAH",
-            "InfoPage":"Vague Economics Stuff",
+            "Description": "You take your significant other out for a night on the town. How much do you tip the waiter afterwards?",
+            "InfoPage":"Always be aware of your own financial situation when making decisions on how much to spend on other expenses such as dates.",
             "Choices":
             [
                 {
-                    "FlavorText": "choice 1",
-                    "IncomeMod": 1,
-                    "CreditMod": 1,
-                    "BalanceMod": 1
+                    "FlavorText": "0%",
+                    "choiceID": 2,
+                    "IncomeMod": 0,
+                    "BalanceMod": -50
                 },
                 {                    
-                    "FlavorText": "choice 2",
-                    "IncomeMod": 2,
-                    "CreditMod": 2,
-                    "BalanceMod": 2
+                    "FlavorText": "15%",
+                    "choiceID": 3,
+                    "IncomeMod": 0,
+                    "BalanceMod": -57.5
+                },
+                {
+                    "FlavorText": "30%",
+                    "choiceID": 4,
+                    "IncomeMod": 0,
+                    "BalanceMod": -65
                 }
             ]
         }
@@ -43,40 +49,21 @@
     "Middle":
     [
         {
-            "Description": "BLAH",
-            "InfoPage":"Vague Economics Stuff",
+            "Description": "You need a car. Pick a car and how you're gonna pay for it.",
+            "InfoPage":"Buying a car is a major financial decision. It is important to make a choice of both what car and how you pay for it by taking into account your current financial status.",
             "Choices":
             [
                 {
-                    "FlavorText": "choice 1",
-                    "IncomeMod": 1,
-                    "CreditMod": 1,
-                    "BalanceMod": 1
+                    "FlavorText": "Tesla, cash",
+                    "choiceID": 5,
+                    "IncomeMod": 0,
+                    "BalanceMod": 50000
                 },
                 {                    
-                    "FlavorText": "choice 2",
-                    "IncomeMod": 2,
-                    "CreditMod": 2,
-                    "BalanceMod": 2
-                }
-            ]
-        },
-        {
-            "Description": "BLAH",
-            "InfoPage":"Vague Economics Stuff",
-            "Choices":
-            [
-                {
-                    "FlavorText": "choice 1",
-                    "IncomeMod": 1,
-                    "CreditMod": 1,
-                    "BalanceMod": 1
-                },
-                {                    
-                    "FlavorText": "choice 2",
-                    "IncomeMod": 2,
-                    "CreditMod": 2,
-                    "BalanceMod": 2
+                    "FlavorText": "Tesla, loan",
+                    "choiceID": 6,
+                    "IncomeMod": -6000,
+                    "BalanceMod": -1000
                 }
             ]
         }
@@ -84,42 +71,34 @@
     "End":    
     [
         {
-            "Description": "BLAH",
-            "InfoPage":"Vague Economics Stuff",
+            "Description": "Chester the Cheetah has invited you to Cheese World! How do you want to attend?",
+            "InfoPage":"Trips require careful financial planning before undertaking",
             "Choices":
             [
                 {
-                    "FlavorText": "choice 1",
-                    "IncomeMod": 1,
-                    "CreditMod": 1,
-                    "BalanceMod": 1
+                    "FlavorText": "Pay out of pocket",
+                    "choiceID": 7,
+                    "IncomeMod": 0,
+                    "BalanceMod": -5000
                 },
                 {                    
-                    "FlavorText": "choice 2",
-                    "IncomeMod": 2,
-                    "CreditMod": 2,
-                    "BalanceMod": 2
+                    "FlavorText": "Put it on your credit cards",
+                    "choiceID": 8,
+                    "IncomeMod": 0,
+                    "BalanceMod": 0
+                },
+                {
+                    "FlavorText": "Take out a personal loan",
+                    "choiceID": 9,
+                    "IncomeMod": 0,
+                    "BalanceMod": 0
                 }
             ]
         },
         {
-            "Description": "BLAH",
-            "InfoPage":"Vague Economics Stuff",
-            "Choices":
-            [
-                {
-                    "FlavorText": "choice 1",
-                    "IncomeMod": 1,
-                    "CreditMod": 1,
-                    "BalanceMod": 1
-                },
-                {                    
-                    "FlavorText": "choice 2",
-                    "IncomeMod": 2,
-                    "CreditMod": 2,
-                    "BalanceMod": 2
-                }
-            ]
+            "Description": "You have lost your job.",
+            "InfoPage":"Loss of employment is a difficult financial situation to find oneself in. With careful planning, however, it can be carefully navigated.",
+            "Choices": []
         }
     ]
 }
