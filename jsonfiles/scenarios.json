@@ -18,7 +18,7 @@
           "BalanceDiff": 0
         }
       ],
-      "ImagePath": "../images/maninsuit.png"
+      "ImagePath": "maninsuit.png"
     },
     {
       "Description": "You and your boo are out for a night on the town. The $273.15 bill for your fancy restaurant shows up. How much do you tip?",
@@ -77,7 +77,7 @@
           "BalanceDiff": 0
         }
       ],
-      "ImagePath": "../images/restaurant.png"
+      "ImagePath": "restaurant.png"
     }
   ],
   "Middle": [
@@ -140,7 +140,7 @@
           "BalanceDiff": 0
         }
       ],
-      "ImagePath": "../images/moneycar.jpeg"
+      "ImagePath": "moneycar.jpeg"
     },
     {
       "Description": "Hello <INSERT_NAME_HERE>, I'd like to tell you about a unique opportunity to be part of a rapidly growing business where you are your own boss! How in are you?",
@@ -176,7 +176,7 @@
           "BalanceDiff": 0
         }
       ],
-      "ImagePath": "../images/oldfriend.png"
+      "ImagePath": "oldfriend.png"
     },
     {
       "Description": "You decide to get into beekeeping, because you really love honey. How many hives do you get?",
@@ -219,7 +219,7 @@
           "BalanceDiff": 0
         }
       ],
-      "ImagePath": "../images/beekeeper.jpg"
+      "ImagePath": "beekeeper.jpg"
     }
   ],
   "End": [
@@ -257,7 +257,7 @@
           "BalanceDiff": 0
         }
       ],
-      "ImagePath": "../images/MISSING"
+      "ImagePath": "MISSING"
     },
     {
       "Description": "You have discovered that you have superpowers! You decided to test them out by jumping off a roof. You discovered your powers include neither flight or healing factor. You have some new medical bills. How do you pay them?",
@@ -293,7 +293,7 @@
           "BalanceDiff": 0
         }
       ],
-      "ImagePath": "../images/flying.jpg"
+      "ImagePath": "flying.jpg"
     },
     {
       "Description": "You have lost your job.",
@@ -307,7 +307,7 @@
           "BalanceDiff": 0
         }
       ],
-      "ImagePath": "../images/lostjob.jpg"
+      "ImagePath": "lostjob.jpg"
     }
   ]
 }
