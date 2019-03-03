@@ -1,89 +1,219 @@
 {
-  "Beginning": [
-    {
-      "Description": "An odd man wearing a black suit approaches you and offers you $6666.66 in exchange for your mortal soul. Do you sign his contract? He seems nice enough.",
-      "Choices": [
+    "Beginning": 
+    [
         {
-          "FlavorText": "That sounds like a great idea! Free money from a chump!",
-          "choiceID": "00",
-          "BalanceDiff": 6666.66
+            "Description": "An odd man wearing a black suit approaches you and offers you $6666.66 in exchange for your mortal soul. Do you sign his contract? He seems nice enough.",
+            "Choices": 
+            [
+                {
+                    "FlavorText": "That sounds like a great idea! Free money from a chump!",
+                    "choiceID": "00",
+                    "account": {},
+                    "BalanceDiff": 6666.66
+                },
+                {
+                    "FlavorText": "No thanks...",
+                    "choiceID": "01",
+                    "account": {},
+                    "BalanceDiff": 0
+                }
+            ]
         },
         {
-          "FlavorText": "No thanks...",
-          "choiceID": "01",
-          "BalanceDiff": 0
+            "Description": "You and your boo are out for a night on the town. The $273.15 bill for your fancy restaurant shows up. How much do you tip?",
+            "Choices": 
+            [
+                {
+                    "FlavorText": "$0 - 0%",
+                    "choiceID": "10",
+                    "account": 
+                    {
+                        "annualfee": 0,
+                        "apr": 0,
+                        "balance": 0,
+                        "cashback": 0,
+                        "creditlimit": 0,
+                        "missedpayment": 0,
+                        "name": 0,
+                        "revolving": 0
+                    },
+                    "BalanceDiff": -273.15
+                },
+                {
+                    "FlavorText": "$40.97 - 15%",
+                    "choiceID": "11",
+                    "account": {},
+                    "BalanceDiff": -314.12
+                },
+                {
+                    "FlavorText": "$54.63 - 20%",
+                    "choiceID": "12",
+                    "account": {},
+                    "BalanceDiff": -327.78
+                },
+                {
+                    "FlavorText": "$81.94 - 30%",
+                    "choiceID": "13",
+                    "account": {},
+                    "BalanceDiff": -355.1
+                }
+            ]
         }
-      ]
-    },
-    {
-      "Description": "You and your boo are out for a night on the town. The $273.15 bill for your fancy restaurant shows up. How much do you tip?",
-      "Choices": [
+    ],
+    "Middle": 
+    [
         {
-          "FlavorText": "$0 - 0%",
-          "choiceID": "10",
-          "BalanceDiff": -273.15
+            "Description": "You just impulse bought a Telsa. Pick how you are financing it.",
+            "Choices": 
+            [
+                {
+                    "FlavorText": "All out of pocket.",
+                    "choiceID": "20",
+                    "account": {},
+                    "BalanceDiff": -50000
+                },
+                {
+                    "FlavorText": "Get a car loan $49,000 principal, $1000 down, APR 15%.",
+                    "choiceID": "21",
+                    "account": 
+                    {
+                        "annualfee": "N/A",
+                        "apr": 0.15,
+                        "balance": 49000,
+                        "cashback": "N/A",
+                        "creditlimit": "N/A",
+                        "missedpayment": 0,
+                        "name": "Car Loan",
+                        "revolving": 0
+                    },
+                    "BalanceDiff": -1000
+                }
+            ]
         },
         {
-          "FlavorText": "$40.97 - 15%",
-          "choiceID": "11",
-          "BalanceDiff": -314.12
+            "Description": "Hello <INSERT_NAME_HERE>, I'd like to tell you about a unique opportunity to be part of a rapidly growing business where you are your own boss! How in are you?",
+            "Choices": 
+            [
+                {
+                    "FlavorText": "$5,000 seems like a perfectly reasonable amount to start a new business!",
+                    "choiceID": "30",
+                    "account": {},
+                    "BalanceDiff": -5000
+                },
+                {
+                    "FlavorText": "Real entrepeneurs are commited, namely $10,000 committed",
+                    "choiceID": "31",
+                    "account": {},
+                    "BalanceDiff": -10000
+                }
+            ]
         },
         {
-          "FlavorText": "$54.63 - 20%",
-          "choiceID": "12",
-          "IncomeMod": 0,
-          "BalanceDiff": -327.78
-        },
-        {
-          "FlavorText": "$81.94 - 30%",
-          "choiceID": "13",
-          "BalanceDiff": -355.1
+            "Description": "You decide to get into beekeeping, because you really love honey. How many hives do you get?",
+            "Choices": 
+            [
+                {
+                    "FlavorText": "5 Hives. This is a hobby after all.",
+                    "choiceID": "40",
+                    "account": {},
+                    "BalanceDiff": -1500
+                },
+                {
+                    "FlavorText": "10 Hives. You enjoy bees and honey.",
+                    "choiceID": "41",
+                    "account": {},
+                    "BalanceDiff": -3000
+                },
+                {
+                    "FlavorText": "30 Hives. You have your priorities in order.",
+                    "choiceID": "42",
+                    "account": {},
+                    "BalanceDiff": -8000
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "Middle": [
-    {
-      "Description": "You just impulse bought a Telsa. Pick how you are financing it.",
-      "Choices": [
+    ],
+    "End": [
         {
-          "FlavorText": "All out of pocket.",
-          "choiceID": "20",
-          "BalanceDiff": -50000
+            "Description": "Your friend, Chester Cheetah, has invited you to Cheese World on the moon! How are you going to finance your trip?",
+            "Choices": 
+            [
+                {
+                    "FlavorText": "Pay out of pocket",
+                    "choiceID": "50",
+                    "account": {},
+                    "BalanceDiff": -5000
+                },
+                {
+                    "FlavorText": "Put it on your credit cards",
+                    "choiceID": "51",
+                    "account": {},
+                    "BalanceDiff": 0
+                },
+                {
+                    "FlavorText": "Take out a personal loan",
+                    "choiceID": "52",
+                    "account":
+                    {
+                        "annualfee": "N/A",
+                        "apr": 0.15,
+                        "balance": 5000,
+                        "cashback": "N/A",
+                        "creditlimit": "N/A",
+                        "missedpayment": 0,
+                        "name": "Cheese World Loan",
+                        "revolving": 0
+                    },
+                    "BalanceDiff": 0
+                }
+            ]
         },
         {
-          "FlavorText": "Get a car loan $49,000 principal, $1000 down, APR 15%.",
-          "choiceID": "21",
-          "BalanceDiff": -1000
+            "Description": "You have discovered that you have superpowers! You decided to test them out by jumping off a roof. You discovered your powers include neither flight or healing factor. You have some new medical bills. How do you pay them?",
+            "Choices": 
+            [
+                {
+                    "FlavorText": "Pay out of pocket",
+                    "choiceID": "60",
+                    "account": {},
+                    "BalanceDiff": -15000
+                },
+                {
+                    "FlavorText": "Put it on your credit cards",
+                    "choiceID": "61",
+                    "account": {},
+                    "BalanceDiff": 0
+                },
+                {
+                    "FlavorText": "Take out a personal loan",
+                    "choiceID": "62",
+                    "account": 
+                    {
+                        "annualfee": "N/A",
+                        "apr": 0.15,
+                        "balance": 15000,
+                        "cashback": "N/A",
+                        "creditlimit": "N/A",
+                        "missedpayment": 0,
+                        "name": "Super Power Hospital Bills",
+                        "revolving": 0
+                    },
+                    "BalanceDiff": 0
+                }
+            ]
+        },
+        {
+            "Description": "You have lost your job.",
+            "InfoPage": "Loss of employment is a difficult financial situation to find oneself in. With careful planning, however, it can be carefully navigated.",
+            "Choices": 
+            [
+                {
+                    "FlavorText": "",
+                    "choiceID": "70",
+                    "account": {},
+                    "BalanceDiff": 0
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "End": [
-    {
-      "Description": "Your friend, Chester Cheetah, has invited you to Cheese World on the moon! How are you going to finance your trip?",
-      "Choices": [
-        {
-          "FlavorText": "Pay out of pocket",
-          "choiceID": "30",
-          "BalanceDiff": -5000
-        },
-        {
-          "FlavorText": "Put it on your credit cards",
-          "choiceID": "31",
-          "BalanceDiff": 0
-        },
-        {
-          "FlavorText": "Take out a personal loan",
-          "choiceID": "32",
-          "BalanceDiff": 0
-        }
-      ]
-    },
-    {
-      "Description": "You have lost your job.",
-      "InfoPage": "Loss of employment is a difficult financial situation to find oneself in. With careful planning, however, it can be carefully navigated.",
-      "Choices": []
-    }
-  ]
+    ]
 }

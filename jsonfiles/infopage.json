@@ -25,11 +25,58 @@
   },
   "20": {
     "InfoPage": "Buying a car is a major financial decision. It is important to make a choice of both what car and how you pay for it by taking into account your current financial status.",
-    "UpdateBlurb": "Thirty percent?! Wow, you made your waiter happy."
+    "UpdateBlurb": ""
   },
   "21": {
     "InfoPage": "Going on trips with old friends is great! Just make sure to properly ",
-    "UpdateBlurb": "Thirty percent?! Wow, you made your waiter happy."
+    "UpdateBlurb": ""
   },
-  "InfoPage": "Trips require careful financial planning before undertaking"
+  "30": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "31": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "40": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "41": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "42": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "50": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "51": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "52": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "60": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "61": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "62": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  },
+  "70": { 
+    "InfoPage": "",
+    "UpdateBlurb": ""
+  }
 }
