@@ -125,12 +125,6 @@ class WebGame:
     #                 nowCreditCard.creditLimit = creditLimitInt
     #                 nowCreditCard.revolvingBool = revolvingBool
     #                 break
-    #         # if foundBool is False:
-    #         #     self.inquiresInPathSixMonthsInt += 1
-    #         #     nowCreditCard = CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat, balanceFloat=balanceFloat,
-    #         #                                cashbackFloat=cashbackFloat, creditLimitInt=creditLimitInt,
-    #         #                                nameStr=nowCreditCardDict, revolvingBool=revolvingBool)
-    #         #     self.playerObj.creditCardObjList.append(nowCreditCard)
     #         if paymentFloat < nowCreditCard.get_minimum_payment_float():
     #             nowCreditCard.missedPaymentBool = True
     #         nowCreditCard.make_payment(paymentFloat=paymentFloat)
