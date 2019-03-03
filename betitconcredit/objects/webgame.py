@@ -36,7 +36,8 @@ class WebGame:
         self.monthsSinceMissingPaymentInt = -1
         self.inquiresInPathSixMonthsInt = 0
         self.monthsSinceCreditEstablishedInt = 24
-        self.playerObj = Player()
+        # self.playerObj = Player()
+        self.playerObj = None
 
     def make_player_obj(self, avatarUrlStr: str, nameStr: str):
         """
