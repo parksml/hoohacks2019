@@ -23,7 +23,8 @@ Target environment: python 3.7
 
 class CreditCard:
     def __init__(self, annualFeeFloat: float, aprFloat: float, cashbackFloat: float,
-                 creditLimitInt: int, nameStr: str, balanceFloat: float = 0, missedPaymentBool: bool = False) -> None:
+                 creditLimitInt: int, nameStr: str, balanceFloat: float = 0, missedPaymentBool: bool = False,
+                 revolvingBool: bool = True) -> None:
         self.annualFeeFloat = annualFeeFloat
         self.aprFloat = aprFloat
         self.balanceFloat = balanceFloat
@@ -31,6 +32,7 @@ class CreditCard:
         self.creditLimitInt = creditLimitInt
         self.missedPaymentBool = missedPaymentBool
         self.nameStr = nameStr
+        self.revolvingBool = revolvingBool
 
     def get_missed_payment_bool(self) -> bool:
         """
