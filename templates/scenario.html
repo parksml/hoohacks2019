@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="ml-2">
                                 <input type="radio" name='choice' id="{{choice.choiceID}}"
-                                    value="{{choice}}" /><label
+                                    value="{{choice.usedcard}}" /><label
                                     for="{{choice.choiceID}}">{{choice.FlavorText}}</label>
                             </div>
                         </div>
@@ -165,10 +165,14 @@
             
             radioValue = $("input[name='choice']:checked").val()
             console.log(radioValue)
-            console.log(radioValue['obj'])
-            if(radioValue.usedcard)
+            console.log(radioValue)
+            if(radioValue == true)
             {
                 $("#cardTable").css({ display: "block" });
+            }
+            else
+            {
+                $("#cardTable").css({ display: "none" });
             }
         });
     </script>
