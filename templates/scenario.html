@@ -42,7 +42,7 @@
                                     <td>${{account.balanceFloat | round(2)}}</td>
                                     <td>{{(account.aprFloat * 100) | round(2)}}%</td>
                                     <td>{{account.creditLimitInt}}</td>
-                                    <td><input type="radio" name="cardName" value="{{account.name}}" /></td>
+                                    <td><input type="radio" name="cardName" value="{{account.nameStr}}" /></td>
                                 </tr>
                                 {% endif %}
                                 {% endfor %}

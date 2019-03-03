@@ -149,6 +149,10 @@ class WebGame:
         # End Miller time.
         self.playerObj.accountBalanceFloat += self.playerObj.incomeInt - self.playerObj.monthlyExpensesFloat 
         self.inquiresInPathSixMonthsInt = 0
+        for nowCreditCard in self.playerObj.creditCardObjList:
+            if nowCreditCard.balanceFloat <=0:
+                if nowCreditCard.revolvingBool is False:
+                    self.playerObj.creditCardObjList.remove(nowCreditCard)
         return returnInfoPageDict
 
     def update_balance_by_choice_id(self, choiceIdStr, nameStr) -> None:
