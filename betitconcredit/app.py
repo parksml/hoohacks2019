@@ -22,26 +22,26 @@ from betitconcredit.objects.webgame import WebGame
 # End project imports.
 
 
-FLASK_OBJ = Flask(__name__, template_folder='./templates')
+FLASK_OBJ = Flask(__name__, template_folder='../templates')
 WEBGAME_OBJ = WebGame()
 
 
-@FLASK_OBJ.route('/home')
+@FLASK_OBJ.route('/')
 def home():
     """
     Display the home page.
     """
     return render_template('home.html')
 
-
-@FLASK_OBJ.route('/set', methods=['POST'])
+@FLASK_OBJ.route('/set', methods=['POST','GET'])
 def set_name_str_and_avatar_url_str():
-    """
-    """
+    if request.method == 'GET':
+        return render_template('Avatar.html')
+
     nameStr = request.form['name']
     avatarUrlStr = request.form['avatar']
     WEBGAME_OBJ.make_player_obj(avatarUrlStr=avatarUrlStr, nameStr=nameStr)
-    return render_template('playerdetials.html', player=WEBGAME_OBJ.playerObj)
+    return render_template('playerdetails.html', player=WEBGAME_OBJ.playerObj)
 
 
 if __name__ == '__main__':

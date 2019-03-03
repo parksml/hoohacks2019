@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+
 {% block content %}
     <div class="jumbotron mx-5 my-5" style="min-height: 50%; min-height: 50vh;">
-        <form action="localhost:5000/set" method="POST">
+        <form action="/set" method="POST">
             <div class="row">
                 <div class="mx-auto">
                     <h4>Name:</h4>
@@ -10,10 +11,11 @@
             </div>
             <div class="row">
                 <div class="mx-auto">
-                    <input type="radio" id="avatar1" name="avatar"><label class="radio-inline"></label>
-                    <label class="radio-inline"><input type="radio" id="avatar2" name="avatar">Option 2</label>
-                    <label class="radio-inline"><input type="radio" id="avatar3" name="avatar">Option 3</label> 
-                <div>
+                        <input type="radio" name='avatar' id="thing1"/><label for="thing1">Avatar1</label> 
+                        <input type="radio" name='avatar' id="thing2"/><label for="thing2">Avatar2</label> 
+                        <input type="radio" name='avatar' id="thing3"/><label for="thing3">Avatar3</label> 
+                        <input type="radio" name='avatar' id="thing4"/><label for="thing4">Avatar4</label> 
+                </div>
             </div>
             <div class="row">
                 <div class="mx-auto">
