@@ -161,11 +161,9 @@
                 <button type="submit" class="btn btn-success">Advance six months</button>
             </div>
         </div>
-        {% if action == "scenario" %}
         <div class="row">
                     <img src="{{url_for('images', filename=scenarioDict.ImagePath)}}">
         </div>
-        {% endif %}
     </div>
 </form>
 {% block javascript %}
