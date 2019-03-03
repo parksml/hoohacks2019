@@ -50,9 +50,9 @@ def scenario():
     """
     """
     if request.method == 'GET':
-        temp = WEBGAME_OBJ.get_next_scenario_dict()
+        WEBGAME_OBJ.tempbutt = WEBGAME_OBJ.get_next_scenario_dict()
         return render_template('scenario.html', player=WEBGAME_OBJ.playerObj,
-                               scenarioDict=temp, action='scenario')
+                               scenarioDict=WEBGAME_OBJ.tempbutt, action='scenario')
     creditCardFormDict = request.form
     infoDict = WEBGAME_OBJ.scenario_over(creditCardFormDict)
     return render_template('playerdetails.html', player=WEBGAME_OBJ.playerObj, info=infoDict, action='info')
@@ -62,8 +62,9 @@ def scenario():
 def info():
     """
     """
+    WEBGAME_OBJ.tempbutt = WEBGAME_OBJ.get_next_scenario_dict()
     return render_template('scenario.html', player=WEBGAME_OBJ.playerObj, action='scenario',
-                           scenarioDict=WEBGAME_OBJ.get_next_scenario_dict())
+                           scenarioDict=WEBGAME_OBJ.tempbutt)
 
 
 @FLASK_OBJ.route('/scenario/select', methods=['POST'])
@@ -76,7 +77,7 @@ def select():
     except Exception:
         nameStr = str()
     WEBGAME_OBJ.update_balance_by_choice_id(choiceIdStr=choiceIdStr, nameStr=nameStr)
-    return render_template('scenario.html', scenarioDict=WEBGAME_OBJ.get_next_scenario_dict(),
+    return render_template('scenario.html', scenarioDict=WEBGAME_OBJ.tempbutt,
                            player=WEBGAME_OBJ.playerObj, action='month')
 
 
