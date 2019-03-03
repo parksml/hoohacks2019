@@ -203,7 +203,7 @@
           "BalanceDiff": -8000
         },
         {
-          "FlavorText": "I need a small loan to get this beekeeping business off the ground...",
+          "FlavorText": "I need a small loan to get this beekeeping business off the ground.",
           "choiceID": "43",
           "usedcard": false,
           "account": {

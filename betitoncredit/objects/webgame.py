@@ -82,7 +82,8 @@ class WebGame:
         aprFloat = uniform(.05, .15)
         cashbackFloat = 'N/A'
         return CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat, balanceFloat=uniform(20000, 80000),
-                          cashbackFloat=cashbackFloat, creditLimitInt='N/A', nameStr='College Loans')
+                          cashbackFloat=cashbackFloat, creditLimitInt='N/A', nameStr='College Loans',
+                          revolvingBool=False)
 
     def json_to_credit_card_obj_list(self) -> List[CreditCard]:
         """
@@ -137,11 +138,11 @@ class WebGame:
         numberInquiresLastSixMonths = self.inquiresInPathSixMonthsInt
         numberTradeLines = len(self.playerObj.creditCardObjList)
         utilization = self.playerObj.get_credit_utilization_percent_float()
-        self.playerObj.creditScoreIn = calc_credit_score(monthsSinceMissedPayment=monthsSinceMissedPayment,
-                                                         avgBalance=avgBalance,
-                                                         numberMonths=numberMonths,
-                                                         numberInquiriesLastSixMonths=numberInquiresLastSixMonths,
-                                                         numberTradeLines=numberTradeLines, utilization=utilization)
+        self.playerObj.creditScoreInt = calc_credit_score(monthsSinceMissedPayment=monthsSinceMissedPayment,
+                                                          avgBalance=avgBalance,
+                                                          numberMonths=numberMonths,
+                                                          numberInquiriesLastSixMonths=numberInquiresLastSixMonths,
+                                                          numberTradeLines=numberTradeLines, utilization=utilization)
         # End Miller time.
         self.inquiresInPathSixMonthsInt = 0
         return returnInfoPageDict
@@ -183,7 +184,8 @@ class WebGame:
         with open(self.scenarioJsonFilePathStr) as inFile:
             scenarioDict = load(inFile)
         for nowScenarioPhaseStr in scenarioDict.keys():
-            scenarioDictList = scenarioDict[nowScenarioPhaseStr]
-            randIndexInt = randrange(len(scenarioDictList))
-            yield scenarioDictList[randIndexInt]
-            del scenarioDictList[randIndexInt]
+            for nowDuck in range(len(scenarioDict[nowScenarioPhaseStr])):
+                scenarioDictList = scenarioDict[nowScenarioPhaseStr]
+                randIndexInt = randrange(len(scenarioDictList))
+                yield scenarioDictList[randIndexInt]
+                del scenarioDictList[randIndexInt]
