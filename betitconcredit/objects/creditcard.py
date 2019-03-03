@@ -58,9 +58,9 @@ class CreditCard:
         if self.balanceFloat > 0:
             self.balanceFloat += self.balanceFloat * self.aprFloat / 2
 
-    def put_on_card(self, putOnCardFloat: float) -> None:
+    def put_on_card(self, putOnCardFloat: float) -> float:
         """
         Call this last.
         """
-        putOnCardFloat = putOnCardFloat - putOnCardFloat * self.cashbackFloat
         self.balanceFloat += putOnCardFloat
+        return putOnCardFloat * self.cashbackFloat
