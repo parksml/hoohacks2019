@@ -11,7 +11,6 @@ Target environment: python 3.7
 """
 
 # Start standard library imports.
-from json import load
 # End standard library imports.
 
 # Start third party imports.

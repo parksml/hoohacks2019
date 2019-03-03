@@ -106,14 +106,14 @@ class WebGame:
         """
         self.monthsSinceCreditEstablishedInt += 6
         for nowCreditCardNameStr in creditCardFormDict:
-            annualFeeFloat = nowCreditCardNameStr['fee']
-            aprFloat = nowCreditCardNameStr['apr']
-            balanceFloat = nowCreditCardNameStr['balance']
-            cashbackFloat = nowCreditCardNameStr['cashback']
-            creditLimitInt = nowCreditCardNameStr['limit']
-            revolvingBool = nowCreditCardNameStr['revolving']
-            paymentFloat = nowCreditCardNameStr['paymentmade']
-            putOnCardFloat = nowCreditCardNameStr['newexpenses']
+            annualFeeFloat = creditCardFormDict[nowCreditCardNameStr]['fee']
+            aprFloat = creditCardFormDict[nowCreditCardNameStr]['apr']
+            balanceFloat = creditCardFormDict[nowCreditCardNameStr]['balance']
+            cashbackFloat = creditCardFormDict[nowCreditCardNameStr]['cashback']
+            creditLimitInt = creditCardFormDict[nowCreditCardNameStr]['limit']
+            revolvingBool = creditCardFormDict[nowCreditCardNameStr]['revolving']
+            paymentFloat = creditCardFormDict[nowCreditCardNameStr]['paymentmade']
+            putOnCardFloat = creditCardFormDict[nowCreditCardNameStr]['newexpenses']
             nowCreditCard = self.playerObj.get_credit_card_by_name_str(nowCreditCardNameStr)
             if nowCreditCard is None:
                 self.inquiresInPathSixMonthsInt += 1
@@ -129,17 +129,17 @@ class WebGame:
                 nowCreditCard.cashbackFloat = cashbackFloat
                 nowCreditCard.creditLimit = creditLimitInt
                 nowCreditCard.revolvingBool = revolvingBool
-                if paymentFloat < nowCreditCard.get_minimum_payment_float():
-                    nowCreditCard.missedPaymentBool = True
+            if paymentFloat < nowCreditCard.get_minimum_payment_float():
+                nowCreditCard.missedPaymentBool = True
             nowCreditCard.make_payment(paymentFloat=paymentFloat)
             cashbackFloat = nowCreditCard.put_on_card(putOnCardFloat=putOnCardFloat)
             self.playerObj.accountBalanceFloat += cashbackFloat
-        if self.monthsSinceMissingPaymentInt >= 0:
-            self.monthsSinceMissingPaymentInt += 6
-        for nowCreditCard in self.playerObj.creditCardObjList:
-            if nowCreditCard.get_missed_payment_bool() is True:
-                self.monthsSinceMissingPaymentInt = 0
-                break
+            if self.monthsSinceMissingPaymentInt >= 0:
+                self.monthsSinceMissingPaymentInt += 6
+            for nowCreditCard in self.playerObj.creditCardObjList:
+                if nowCreditCard.get_missed_payment_bool() is True:
+                    self.monthsSinceMissingPaymentInt = 0
+            break
         with open(self.infoPageJsonFilePathStr) as inFile:
             infoPageDict = load(inFile)
         returnInfoPageDict = infoPageDict[self.choiceIdStr]
