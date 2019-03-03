@@ -4,7 +4,7 @@
 <div class="jumbotron mx-5 my-5" style="min-height: 50%; min-height: 50vh;">
     <div class="row">
         <div class="mx-auto">
-            <h2>{{player.avatarUrlStr}}</h2>
+            <img src="{{url_for('images', filename=player.avatarUrlStr)}}">
         </div>
     </div>
     <div class="row">

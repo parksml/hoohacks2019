@@ -2,8 +2,7 @@
 
 {% block content %}
 {% if action == "scenario" %}
-<div class="modal" id="myModal" tabindex="-1" role="dialog" style="display: block;"
-    aria-modal="true">
+<div class="modal" id="myModal" tabindex="-1" role="dialog" style="display: block;" aria-modal="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,7 +15,7 @@
                         {% for choice in scenarioDict["Choices"] %}
                         <div class="row">
                             <div class="ml-2">
-                                <input name='choice' value ="{{choice.choiceID}}" style="display: none;"/>
+                                <input name='choice' value="{{choice.choiceID}}" style="display: none;" />
                                 <input type="radio" name='choiceRadio' id="{{choice.choiceID}}"
                                     value="{{choice.usedcard}}" /><label
                                     for="{{choice.choiceID}}">{{choice.FlavorText}}</label>
@@ -130,6 +129,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+
                 </div>
             </div>
         </div>
@@ -161,13 +161,18 @@
                 <button type="submit" class="btn btn-success">Advance six months</button>
             </div>
         </div>
+        {% if action == "scenario" %}
+        <div class="row">
+                    <img src="{{url_for('images', filename=scenarioDict.ImagePath)}}">
+        </div>
+        {% endif %}
     </div>
 </form>
 {% block javascript %}
 <script type="text/javascript">
     $('#cardRadios input').click(function () {
-        if($(this).is(':checked'))
-        radioValue = $(this).val()
+        if ($(this).is(':checked'))
+            radioValue = $(this).val()
         if (radioValue == 'True') {
             $("#cardTable").css({ display: "block" });
         }
