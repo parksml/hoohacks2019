@@ -45,11 +45,29 @@
             {% endfor %}
         </tbody>
     </table>
+    {% if action == "info" %}
     <div class="row">
         <div class="mx-auto">
+            <h4>{{scenarioDict.InfoPage}}</h4>
+        </div>
+    </div>
+    <div class="row">
+            <div class="ml-2">
+                <p>{{scenarioDict.UpdateBlurb}}</p>
+            </div>
+    </div>
+    {% endif %}
+    <div class="row">
+        <div class="mx-auto">
+            {% if action == "info" %}
+            <form action="/info" method="GET">
+                <button type="submit" class="btn btn-success">Learning is Half The Battle!</button>
+            </form>
+            {% else %}
             <form action="/scenario" method="GET">
                 <button type="submit" class="btn btn-success">Let's Build Some Credit!</button>
             </form>
+            {% endif %}
         </div>
     </div>
 </div>
