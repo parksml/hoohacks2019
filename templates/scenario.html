@@ -71,7 +71,7 @@
                                 {% else %}
                                 <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.01)) | round(2) }}</td>
                                 {% endif %}
-                                <td><input name="{{account.nameStr}}Paid" placeholder="amount" value=0 /></td>
+                                <td><input name="{{account.nameStr}}" placeholder="amount" value=0 /></td>
                             </tr>
                             {% endfor %}
                         </tbody>
