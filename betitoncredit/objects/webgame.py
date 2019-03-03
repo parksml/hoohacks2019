@@ -55,6 +55,8 @@ class WebGame:
         try:
             return next(self.nextScenarioDictGen)
         except StopIteration:
+            # self.nextScenarioDictGen = self.json_to_scenario_dict_gen()
+            # return next(self.nextScenarioDictGen)
             return dict()
 
     def make_player_obj(self, avatarUrlStr: str, nameStr: str):
