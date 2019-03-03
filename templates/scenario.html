@@ -1,7 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+{% if action == "scenario" %}
+<div class="modal" id="myModal" tabindex="-1" role="dialog" style="display: block; padding-right: 17px;"
+    aria-modal="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Life Happens...</h5>
+            </div>
+            <form action="/scenario/select" method="POST">
+                <div class="modal-body">
+                    <p>{{scenarioDict["Description"]}}</p>
+                    {% for choice in scenarioDict["Choices"] %}
+                    <div class="row">
+                        <div class="ml-2">
+                            <input type="radio" name='choice' id="{{choice.choiceID}}"
+                                value="{{choice.choiceID}}" /><label
+                                for="{{choice.choiceID}}">{{choice.FlavorText}}</label>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <div class="mx-auto">
+                        <button type="submit" class="btn btn-info btn-lg" data-toggle="modal"
+                            data-target="#myModal">Ok</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
+<form action="/scenario" method="POST">
 {% if action == "month" %}
 <div class="modal fade bd-example-modal-lg" id="payment" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -25,7 +57,7 @@
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Balance</th>
-                                <th scope="col">Min Payment)</th>
+                                <th scope="col">Min Payment</th>
                                 <th scope="col">Payment</th>
                             </tr>
                         </thead>
@@ -39,7 +71,7 @@
                                 {% else %}
                                 <td>${{ (account.balanceFloat * ((account.aprFloat / 2) + 0.01)) | round(2) }}</td>
                                 {% endif %}
-                                <td><input name="{{account.nameStr}}Paid" placeholder="amount" /></td>
+                                <td><input name="{{account.nameStr}}Paid" placeholder="amount" value=0 /></td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -68,38 +100,6 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             </div>
-        </div>
-    </div>
-</div>
-{% endif %}
-{% if action == "scenario" %}
-<div class="modal" id="myModal" tabindex="-1" role="dialog" style="display: block; padding-right: 17px;"
-    aria-modal="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Life Happens...</h5>
-            </div>
-            <form action="/scenario/select" method="POST">
-            <div class="modal-body">
-                <p>{{scenarioDict["Description"]}}</p>
-                {% for choice in scenarioDict["Choices"] %}
-                <div class="row">
-                    <div class="ml-2">
-                        <input type="radio" name='choice' id="{{choice.choiceID}}" value="{{choice.choiceID}}" /><label
-                            for="{{choice.choiceID}}">{{choice.FlavorText}}</label>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <div class="modal-footer">
-                <div class="mx-auto">
-                    
-                        <button type="submit" class="btn btn-info btn-lg" data-toggle="modal"
-                            data-target="#myModal">Ok</button>                  
-                </div>
-            </div>
-        </form>
         </div>
     </div>
 </div>
