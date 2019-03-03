@@ -46,6 +46,7 @@ class WebGame:
         studentLoadObj = self.make_student_loan_obj()
         self.playerObj = Player(avatarUrlStr=avatarUrlStr, nameStr=nameStr)
         self.playerObj.creditCardObjList.append(bogusCreditCardObj)
+        self.playerObj.creditCardObjList.append(studentLoadObj)
 
     def make_bogus_credit_card(self):
         """
@@ -56,7 +57,7 @@ class WebGame:
         return CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat, balanceFloat=uniform(900, 1200),
                           cashbackFloat=cashbackFloat, creditLimitInt=2000, nameStr='Discover Card')
 
-    def make_student_load_obj(self):
+    def make_student_loan_obj(self):
         """
         """
         annualFeeFloat = 'N/A'
