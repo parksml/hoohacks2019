@@ -107,7 +107,7 @@
     <div class="row">
         <ul style="list-style-type:none;">
             <li>Credit Score: {{player.creditScoreInt}}</li>
-            <li>Current Balance: ${{(player.accountBalanceFloat + scenarioDict["BalanceDiff"]) | round(2)}}</li>
+            <li>Current Balance: ${{player.accountBalanceFloat | round(2)}}</li>
             <li>Income: ${{player.incomeInt}}.00</li>
             <li>Expenses: ${{player.monthlyExpensesFloat | round(2)}}</li>
         </ul>
