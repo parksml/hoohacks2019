@@ -82,7 +82,8 @@ class WebGame:
         aprFloat = uniform(.05, .15)
         cashbackFloat = 'N/A'
         return CreditCard(annualFeeFloat=annualFeeFloat, aprFloat=aprFloat, balanceFloat=uniform(20000, 80000),
-                          cashbackFloat=cashbackFloat, creditLimitInt='N/A', nameStr='College Loans')
+                          cashbackFloat=cashbackFloat, creditLimitInt='N/A', nameStr='College Loans',
+                          revolvingBool=False)
 
     def json_to_credit_card_obj_list(self) -> List[CreditCard]:
         """

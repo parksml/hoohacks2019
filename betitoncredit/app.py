@@ -54,7 +54,8 @@ def scenario():
                                scenarioDict=temp, action='scenario')
     creditCardFormDict = request.form
     WEBGAME_OBJ.scenario_over(creditCardFormDict)
-    return render_template('scenario.html', player=WEBGAME_OBJ.playerObj)
+    return render_template('scenario.html', player=WEBGAME_OBJ.playerObj,
+                           scenarioDict=WEBGAME_OBJ.get_next_scenario_dict(), action='scenario')
 
 
 @FLASK_OBJ.route('/scenario/select', methods=['POST'])

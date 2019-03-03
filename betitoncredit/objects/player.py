@@ -82,6 +82,6 @@ class Player:
         totalUsedInt = 0
         for nowCreditCardObj in self.creditCardObjList:
             if nowCreditCardObj.revolvingBool is True:
-                totalAvalaibleInt += nowCreditCardObj.creditLimitInt
-                totalUsedInt += nowCreditCardObj.balanceFloat
+                totalAvalaibleInt += float(nowCreditCardObj.creditLimitInt)
+                totalUsedInt += float(nowCreditCardObj.balanceFloat)
         return totalUsedInt / totalAvalaibleInt * 100
