@@ -16,7 +16,8 @@
                         {% for choice in scenarioDict["Choices"] %}
                         <div class="row">
                             <div class="ml-2">
-                                <input type="radio" name='choice' id="{{choice.choiceID}}"
+                                <input name='choice' value ="{{choice.choiceID}}" style="display: none;"/>
+                                <input type="radio" name='choiceRadio' id="{{choice.choiceID}}"
                                     value="{{choice.usedcard}}" /><label
                                     for="{{choice.choiceID}}">{{choice.FlavorText}}</label>
                             </div>
@@ -36,7 +37,7 @@
                             </thead>
                             <tbody>
                                 {% for account in player.creditCardObjList %}
-                                {% if account.revolvingBool == true %}
+                                {% if account.revolvingBool == 'True' %}
                                 <tr>
                                     <td>{{account.nameStr}}</td>
                                     <td>${{account.balanceFloat | round(2)}}</td>
