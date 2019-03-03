@@ -62,7 +62,8 @@ def select():
     """
     """
     choiceIdStr = request.form['choice']
-    WEBGAME_OBJ.update_balance_by_choice_id(choiceIdStr=choiceIdStr)
+    nameStr = request.form['name']
+    WEBGAME_OBJ.update_balance_by_choice_id(choiceIdStr=choiceIdStr, nameStr=nameStr)
     return render_template('scenario.html', player=WEBGAME_OBJ.playerObj, action='month')
 
 

@@ -106,14 +106,15 @@ class WebGame:
         """
         self.monthsSinceCreditEstablishedInt += 6
         for nowCreditCardNameStr in creditCardFormDict:
-            annualFeeFloat = creditCardFormDict[nowCreditCardNameStr]['fee']
-            aprFloat = creditCardFormDict[nowCreditCardNameStr]['apr']
-            balanceFloat = creditCardFormDict[nowCreditCardNameStr]['balance']
-            cashbackFloat = creditCardFormDict[nowCreditCardNameStr]['cashback']
-            creditLimitInt = creditCardFormDict[nowCreditCardNameStr]['limit']
-            revolvingBool = creditCardFormDict[nowCreditCardNameStr]['revolving']
-            paymentFloat = creditCardFormDict[nowCreditCardNameStr]['paymentmade']
-            putOnCardFloat = creditCardFormDict[nowCreditCardNameStr]['newexpenses']
+            if len(creditCardFormDict[nowCreditCardNameStr]) > 0:
+                annualFeeFloat = creditCardFormDict[nowCreditCardNameStr]['fee']
+                aprFloat = creditCardFormDict[nowCreditCardNameStr]['apr']
+                balanceFloat = creditCardFormDict[nowCreditCardNameStr]['balance']
+                cashbackFloat = creditCardFormDict[nowCreditCardNameStr]['cashback']
+                creditLimitInt = creditCardFormDict[nowCreditCardNameStr]['limit']
+                revolvingBool = creditCardFormDict[nowCreditCardNameStr]['revolving']
+                paymentFloat = creditCardFormDict[nowCreditCardNameStr]['paymentmade']
+                putOnCardFloat = creditCardFormDict[nowCreditCardNameStr]['newexpenses']
             nowCreditCard = self.playerObj.get_credit_card_by_name_str(nowCreditCardNameStr)
             if nowCreditCard is None:
                 self.inquiresInPathSixMonthsInt += 1
@@ -169,7 +170,7 @@ class WebGame:
         self.inquiresInPathSixMonthsInt = 0
         return returnInfoPageDict
 
-    def update_balance_by_choice_id(self, choiceIdStr) -> None:
+    def update_balance_by_choice_id(self, choiceIdStr, nameStr) -> None:
         """
         """
         self.choiceIdStr = choiceIdStr
@@ -177,7 +178,12 @@ class WebGame:
         for nowScenarioDict in self.json_to_scenario_dict_gen():
             for nowScenarioChoiceDict in nowScenarioDict['Choices']:
                 if nowScenarioChoiceDict['choiceID'] == choiceIdStr:
-                    self.playerObj.accountBalanceFloat += nowScenarioChoiceDict['BalanceDiff']
+                    if nowScenarioChoiceDict['usedcard'] is True:
+                        cashbackFloat = self.playerObj.get_credit_card_by_name_str(nameStr=nameStr).put_on_card(
+                            nowScenarioChoiceDict['BalanceDiff'])
+                        self.playerObj.accountBalanceFloat += cashbackFloat
+                    else:
+                        self.playerObj.accountBalanceFloat += nowScenarioChoiceDict['BalanceDiff']
                     if len(nowScenarioChoiceDict['account']) > 0:
                         self.inquiresInPathSixMonthsInt += 1
                         choiceDict = nowScenarioChoiceDict['account']
