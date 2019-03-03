@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                                 {% for account in player.creditCardObjList %}
-                                {% if account.revolvingBool == true %}                        
+                                {% if account.revolvingBool == true %}
                                 <tr>
                                     <td>{{account.nameStr}}</td>
                                     <td>${{account.balanceFloat | round(2)}}</td>
@@ -50,9 +50,11 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <div class="mx-auto">
-                            <button type="submit" class="btn btn-info btn-lg" data-toggle="modal"
-                                data-target="#myModal">Ok</button>
+                        <div class="row">
+                            <div class="mx-auto">
+                                <button type="submit" class="btn btn-info btn-lg" data-toggle="modal"
+                                    data-target="#myModal">Ok</button>
+                            </div>
                         </div>
                     </div>
             </form>
@@ -160,21 +162,19 @@
     </div>
 </form>
 {% block javascript %}
-        <script type="text/javascript">
-        $('#cardRadios input').change(function () {
-            
-            radioValue = $("input[name='choice']:checked").val()
-            console.log(radioValue)
-            console.log(radioValue)
-            if(radioValue == true)
-            {
-                $("#cardTable").css({ display: "block" });
-            }
-            else
-            {
-                $("#cardTable").css({ display: "none" });
-            }
-        });
-    </script>
-    {% endblock %}
+<script type="text/javascript">
+    $('#cardRadios input').change(function () {
+
+        radioValue = $("input[name='choice']:checked").val()
+        console.log(radioValue)
+        console.log(radioValue)
+        if (radioValue == true) {
+            $("#cardTable").css({ display: "block" });
+        }
+        else {
+            $("#cardTable").css({ display: "none" });
+        }
+    });
+</script>
+{% endblock %}
 {% endblock %}
