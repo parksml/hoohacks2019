@@ -53,8 +53,8 @@ def scenario():
         temp = WEBGAME_OBJ.get_next_scenario_dict()
         return render_template('scenario.html', player=WEBGAME_OBJ.playerObj,
                                scenarioDict=temp, action='scenario')
-    creditCardDictList = request.form['creditCardDictList']['Accounts']
-    WEBGAME_OBJ.scenario_over(creditCardDictList)
+    creditCardFormDict = request.form
+    WEBGAME_OBJ.scenario_over(creditCardFormDict)
     return render_template('scenario.html', player=WEBGAME_OBJ.playerObj)
 
 

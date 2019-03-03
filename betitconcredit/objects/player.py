@@ -47,6 +47,7 @@ class Player:
     def __init__(self, avatarUrlStr: str, nameStr: str) -> None:
         self.accountBalanceFloat = get_random_account_balance_float()
         self.avatarUrlStr = avatarUrlStr
+        self.choicesList = list()
         self.creditScoreInt = 600
         self.creditCardObjList = list()
         self.devilsDealBool = False
@@ -54,6 +55,14 @@ class Player:
         self.monthlyExpensesFloat = self.incomeInt * get_random_bill_percent_float()
         self.jobBool = True
         self.nameStr = nameStr
+
+    def get_credit_card_by_name_str(self, nameStr) -> CreditCard:
+        """
+        """
+        for nowCreditCard in self.creditCardObjList:
+            if nowCreditCard.nameStr == nameStr:
+                return nowCreditCard
+        return None
 
     def get_average_credit_card_total_float(self):
         """
