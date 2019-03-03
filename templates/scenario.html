@@ -2,7 +2,7 @@
 
 {% block content %}
 {% if action == "scenario" %}
-<div class="modal" id="myModal" tabindex="-1" role="dialog" style="display: block; padding-right: 17px;"
+<div class="modal" id="myModal" tabindex="-1" role="dialog" style="display: block;"
     aria-modal="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -21,8 +21,8 @@
                                     for="{{choice.choiceID}}">{{choice.FlavorText}}</label>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                     <div id="cardTable" class="row" style="display: none;">
                         <table class="table table-striped mx-auto" id="creditCardSelect">
                             <thead>
